@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: JavaScript API - Ramblings</title>
+<title>Tag: JavaScript API - Ram.blings</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -10,17 +10,25 @@
 
 
 
+<meta name="description" content="A collection of tech related ramblings from a man with a computer.">
 
 
 
+<meta name="keywords" content="Web Development, JavaScript, CSS,">
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Ramblings">
+
+
+    <meta name="description" content="A collection of tech related ramblings from a man with a computer.">
+<meta name="keywords" content="Web Development, JavaScript, CSS,">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ram.blings">
 <meta property="og:url" content="https://shaneiadt.github.io/tags/JavaScript-API/index.html">
-<meta property="og:site_name" content="Ramblings">
+<meta property="og:site_name" content="Ram.blings">
+<meta property="og:description" content="A collection of tech related ramblings from a man with a computer.">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ramblings">
+<meta name="twitter:title" content="Ram.blings">
+<meta name="twitter:description" content="A collection of tech related ramblings from a man with a computer.">
 <meta name="twitter:creator" content="@ShaneOMoore1">
 
 
@@ -117,26 +125,68 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2019/03/27/CSS-Magic-is-real-with-Houdini/" itemprop="url">(CSS) Magic Is Real With Houdini</a>
+            <a href="/2019/03/29/CSS-Magic-is-real-with-Houdini/" itemprop="url">(CSS) Magic Is Real With Houdini</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2019-03-27T15:50:25.000Z" itemprop="datePublished">Mar 27 2019</time>
+            <time datetime="2019-03-29T15:50:25.000Z" itemprop="datePublished">Mar 29 2019</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            a few seconds read (About 30 words)
+            6 minutes read (About 919 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>Fed up with bloated hacky JavaScript manipulating CSS? <em>Me too!</em></p>
-<p><img src="https://media.giphy.com/media/yYSSBtDgbbRzq/giphy.gif" alt="The struggle is real, thanks CSS!" title="The stuggle is real, thanks CSS!"></p>
+        <p>Fed up with bloated hacky JavaScript manipulating CSS? <em>Me too!</em> </p>
+<p>Enter the <a href="/#The-Task-Force">Houdini Task Force</a> with one <em>simple</em> goal…outline a collection of drafts to be accepted by <a href="https://www.w3.org/" target="_blank" rel="noopener">W3C</a>  &amp; added as common web standards. Well it doesn’t seem that simple but these guys are making great strides for the web and developers sake.</p>
+<p><img src="https://media.giphy.com/media/yYSSBtDgbbRzq/giphy.gif" alt="The struggle is real, thanks CSS!" title="The struggle is real, thanks CSS!"></p>
+<p>Houdini will in essence offer the ability to extend the CSS rendering engine with low-level JavaScript APIs. Which will allow authors to extend the CSS engine offering massive improvements &amp; capabilities from a user experience &amp; performance point of view.</p>
+<h2 id="Specifications"><a href="#Specifications" class="headerlink" title="Specifications"></a>Specifications</h2><ul>
+<li><a href="/#Worklets">Worklets</a></li>
+<li><a href="/#CSS-Paint-API">CSS Paint API</a></li>
+<li><a href="/#CSS-Animation-Worklet">CSS Animation Worklet</a></li>
+<li><a href="/#CSS-Layout-API">CSS Layout API</a></li>
+<li><a href="/#Typed-CSSOM">Typed CSSOM</a></li>
+</ul>
+<h3 id="Worklets"><a href="#Worklets" class="headerlink" title="Worklets"></a>Worklets</h3><p><a href="https://drafts.css-houdini.org/worklets/" target="_blank" rel="noopener">View specification</a></p>
+<p>Worklets themselves aren’t really anything to write home about. Similar to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API" target="_blank" rel="noopener">Web Worker</a> a Worklet is more of a concept that makes use of ES2015 class definitions helping to expose these low-level APIs within our browser.</p>
+<p>So what is a Worklet? A Worklet is almost like a mini event loop (<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&amp;vl=en" target="_blank" rel="noopener">what is the event loop</a>) that can attach or reposition itself to different events it is configured to. In the words of <a href="https://twitter.com/dassurma?lang=en" target="_blank" rel="noopener">Surma</a> think of it as your swiss army knife to accessing these low-level APIs.</p>
+<p>Let’s look at our first low-level API that Worklets give us access to, the CSS Paint API.</p>
+<h4 id="As-most-of-these-specs-are-still-in-the-draft-phase-you-may-need-to-enable-experimental-web-features-to-see-them-in-action-chrome-flags-enable-experimental-web-platform-features"><a href="#As-most-of-these-specs-are-still-in-the-draft-phase-you-may-need-to-enable-experimental-web-features-to-see-them-in-action-chrome-flags-enable-experimental-web-platform-features" class="headerlink" title="As most of these specs are still in the draft phase you may need to enable experimental web features to see them in action. chrome://flags/#enable-experimental-web-platform-features"></a><strong>As most of these specs are still in the draft phase you may need to enable experimental web features to see them in action. <code>chrome://flags/#enable-experimental-web-platform-features</code></strong></h4><p><a href="http://houdini.glitch.me/worklets" target="_blank" rel="noopener">Read more about Worklets</a></p>
+<h4 id="CSS-Paint-API"><a href="#CSS-Paint-API" class="headerlink" title="CSS Paint API"></a>CSS Paint API</h4><p><a href="https://drafts.css-houdini.org/css-paint-api/" target="_blank" rel="noopener">View specification</a></p>
+<p>Ok what the hell does this thing do you ask &amp; why should I be excited about it! Imagine being able to programmatically control exactly what, when &amp; how an object is drawn to the screen. With greater control using SVGs or jamming image files into your CSS may well become less of a headache.</p>
+<p>Instead of using things like <code>background-image</code> or <code>border-image</code> you can now reference a paint worklet like so <code>paint(myPainter)</code>. Enough with the jabber show me the goodies dag-nab-it!</p>
+<p><a href="https://googlechromelabs.github.io/houdini-samples/paint-worklet/diamond-shape/" target="_blank" rel="noopener">Example</a></p>
+<p><a href="http://houdini.glitch.me/paint" target="_blank" rel="noopener">Read more about CSS Paint API</a></p>
+<h4 id="CSS-Animation-Worklet"><a href="#CSS-Animation-Worklet" class="headerlink" title="CSS Animation Worklet"></a>CSS Animation Worklet</h4><p><a href="https://drafts.css-houdini.org/css-animationworklet/" target="_blank" rel="noopener">View specification</a></p>
+<p>This super-sweet Worklet allows us to run a set of instructions on a device at it’s native frame rate preventing jumpy &amp; awkward animations. The first port of call for most animations in CSS is <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank" rel="noopener">CSS Transitions</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation" target="_blank" rel="noopener">CSS Animations</a> &amp; the more complex <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank" rel="noopener">Web Animations API</a>. With the CSS Animation API / Worklet we can listen for any user input even scroll events!</p>
+<p>This topic is quite extensive so to prevent boredom I suggest checking out the example below &amp; read more if you fancy.</p>
+<p><a href="https://googlechromelabs.github.io/houdini-samples/animation-worklet/spring-timing/" target="_blank" rel="noopener">Example</a></p>
+<p><a href="https://developers.google.com/web/updates/2018/10/animation-worklet" target="_blank" rel="noopener">Read more about CSS Animation Worklet</a></p>
+<h4 id="CSS-Layout-API"><a href="#CSS-Layout-API" class="headerlink" title="CSS Layout API"></a>CSS Layout API</h4><p><a href="https://drafts.css-houdini.org/css-layout-api/" target="_blank" rel="noopener">View specification</a></p>
+<p>With the ability to create &amp; control your layouts with enormous detail never imagined before! The layout worklet can even help you build your own layouts &amp; pass them into the <code>display</code> property, like so <code>display: layout(&#39;myLayout&#39;)</code>. </p>
+<p><a href="https://googlechromelabs.github.io/houdini-samples/layout-worklet/masonry/" target="_blank" rel="noopener">Example</a></p>
+<p><a href="https://houdini.glitch.me/layout" target="_blank" rel="noopener">Read more about the CSS Layout API</a></p>
+<h3 id="Typed-CSSOM"><a href="#Typed-CSSOM" class="headerlink" title="Typed CSSOM"></a>Typed CSSOM</h3><p><a href="https://drafts.css-houdini.org/css-typed-om/" target="_blank" rel="noopener">View specification</a></p>
+<p>CSS Object Model or Cascading Style Sheets Object Model (Typed CSSOM). If you are familiar with a programming language or two you might have stumbled upon some Object Oriented stuff &amp; data types. What this specification focuses on is the typing part, mainly the typing of CSS values as JavaScript objects.</p>
+<p>With Typed CSSOM every CSS value is now a member of a new base class called <code>CSSStyleValue</code>. These values can then be extended to help authors manage calculations &amp; different value types such as <code>rem</code>, <code>px</code>, <code>em</code> &amp; <code>percent</code>.</p>
+<p><a href="https://codepen.io/impressivewebs/pen/mQbqGR" target="_blank" rel="noopener">Example</a></p>
+<h2 id="The-Task-Force"><a href="#The-Task-Force" class="headerlink" title="The Task Force"></a>The Task Force</h2><p>With engineers from the likes of Apple, Google &amp; Microsoft working together (<em>i know scary right!</em>) on these potentially new web standards how could you not be excited!</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>I wanted to keep these sections brief…so there you have it! Not all the specifications are fully stable at the moment but Houdini &amp; Worklets won’t be going away anytime soon. Keep your ear close to the coconut on this one peoples.</p>
+<h3 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h3><ul>
+<li><a href="https://ishoudinireadyyet.com/" target="_blank" rel="noopener">Is Houdini Ready Yet?</a></li>
+<li><a href="https://github.com/w3c/css-houdini-drafts/wiki" target="_blank" rel="noopener">CSS Houdini Github Wiki</a></li>
+<li><a href="https://developers.google.com/web/updates/tags/houdini" target="_blank" rel="noopener">Houdini updates on developer.google</a>.</li>
+<li><a href="https://drafts.css-houdini.org/" target="_blank" rel="noopener">Houdini draft specifications</a></li>
+<li><a href="https://www.youtube.com/watch?v=lK3OiJvwgSc" target="_blank" rel="noopener">Chrome Dev Summit Video</a></li>
+<li><a href="https://googlechromelabs.github.io/houdini-samples/" target="_blank" rel="noopener">Google Chrome Lab Houdini Examples</a></li>
+</ul>
 
     
     </div>
