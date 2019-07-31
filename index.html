@@ -136,7 +136,7 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>In this article we will run over the basic setup for <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack 4</a>. Why <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a> & not some other bundler like <a href="https://parceljs.org/" target="_blank" rel="noopener">Parcel</a> or <a href="https://rollupjs.org/guide/en/" target="_blank" rel="noopener">RollUp</a>? I know <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a> so I figured that would be a good start, lets keep it simple shall we!</p>
+        <p>In this article we will run over the basic setup for <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack 4</a>. Why Webpack & not some other bundler like <a href="https://parceljs.org/" target="_blank" rel="noopener">Parcel</a> or <a href="https://rollupjs.org/guide/en/" target="_blank" rel="noopener">RollUp</a>? I know Webpack so I figured that would be a good start, lets keep it simple shall we!</p>
 <p><img src="https://i.imgflip.com/1tlvet.jpg" alt></p>
 <p>Bundlers in general can make your dev life a lot easier & far more productive, but some can absorb you into config hell! For example here’s a zero configuration Webpack project minus the hair plugging.</p>
 <p>Let’s create our project & setup npm as our package manager of choice. The -y flag tells npm to use the default package.json configuration, I don’t care for questions thank you very much.</p>
@@ -162,6 +162,7 @@
 <p>Now run our bundler again <code>npm run build</code> and boom our main.js file has been updated once more. Let’s inspect the output as we’re only using console.log through the command-line. Run <code>node dist/main.js</code> from your project directory & you should see something <strong>Awesome</strong> appear. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8">✨</span></p>
 <p>Our bundler is looking pretty good now, these are just the basics of course. If you fancy diving into some more details around configuring your bundler why not check out the <a href="https://webpack.js.org/concepts/" target="_blank" rel="noopener">docs</a>.</p>
 <p>In the next article I will be covering <strong>Webpack Dev Server</strong> to improve our development workflow, along with <strong>Entry</strong> & <strong>Output</strong> configuration our your bundler.</p>
+<p><strong>Github Repo</strong>: <a href="https://github.com/shaneiadt/webpack-4-beginners" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners</a></p>
 <p>Exciting times I know woop woop! Go forth and bundle my friends <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png?v8">👋</span></p>
 <script>
         document.querySelectorAll('.github-emoji')
