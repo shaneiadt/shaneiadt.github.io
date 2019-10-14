@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Ram.blings</title>
+<title>What Is Docker? - Ram.blings</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -18,18 +18,20 @@
 
 
 
-    <meta name="description" content="What is the Shadow DOM?         That&apos;s a pretty dang good question!                      This is our fallback text                            const shadowHost = document.querySelector(&quot;#">
-<meta name="keywords" content="Web Development, JavaScript, CSS,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ram.blings">
-<meta property="og:url" content="https://shaneiadt.github.io/images/start-using-the-shadow-dom/shadow-dom.html">
+    <meta name="description" content="Continuous development on a project will result in it expanding (it’s natural man deal with it 🍀), as our projects / services grow so will our code base…into a monolithic monster! Managing &amp; monitor">
+<meta name="keywords" content="Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Is Docker?">
+<meta property="og:url" content="https://shaneiadt.github.io/2019/10/14/What-is-Docker/index.html">
 <meta property="og:site_name" content="Ram.blings">
-<meta property="og:description" content="What is the Shadow DOM?         That&apos;s a pretty dang good question!                      This is our fallback text                            const shadowHost = document.querySelector(&quot;#">
+<meta property="og:description" content="Continuous development on a project will result in it expanding (it’s natural man deal with it 🍀), as our projects / services grow so will our code base…into a monolithic monster! Managing &amp; monitor">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-11T13:35:18.228Z">
+<meta property="og:image" content="https://shaneiadt.github.io/images/what-is-docker/docker.png">
+<meta property="og:updated_time" content="2019-10-14T13:46:01.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ram.blings">
-<meta name="twitter:description" content="What is the Shadow DOM?         That&apos;s a pretty dang good question!                      This is our fallback text                            const shadowHost = document.querySelector(&quot;#">
+<meta name="twitter:title" content="What Is Docker?">
+<meta name="twitter:description" content="Continuous development on a project will result in it expanding (it’s natural man deal with it 🍀), as our projects / services grow so will our code base…into a monolithic monster! Managing &amp; monitor">
+<meta name="twitter:image" content="https://shaneiadt.github.io/images/what-is-docker/docker.png">
 <meta name="twitter:creator" content="@ShaneOMoore1">
 
 
@@ -118,58 +120,57 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            
+            What Is Docker?
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2019-09-30T08:46:23.551Z" itemprop="datePublished">Sep 30 2019</time>
+            <time datetime="2019-10-14T16:00:00.000Z" itemprop="datePublished">Oct 14 2019</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            a few seconds read (About 75 words)
+            5 minutes read (About 714 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        
-    <section>
-        <h1>What is the Shadow DOM?</h1>
-        <p>That's a pretty dang good question!</p>
-        <div id="root">
-            <p>This is our fallback text</p>
-        </div>
-    </section>
-    <script>
-        const shadowHost = document.querySelector("#root");
-        const shadow = shadowHost.attachShadow({
-            mode: 'open'
-        });
-
-        const paragraph = document.createElement("p");
-        paragraph.innerText = `
-            It's an awesome way to create
-            re-useable encapsulated web components!
-        `;
-        shadow.appendChild(paragraph)
-
-        const styles = document.createElement("style");
-        styles.textContent = `
-            p {
-                font-weight: bold;
-                font-size: 50px;
-                width: 50%;
-                color: purple;
-            }
-        `;
-        shadow.appendChild(styles);
-    </script>
-
-
+        <p><img src="/images/what-is-docker/docker.png" alt="What is Docker?"></p>
+<p>Continuous development on a project will result in it expanding (it’s natural man deal with it <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f340.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f340.png?v8">🍀</span>), as our projects / services grow so will our code base…into a monolithic monster! Managing & monitoring these services can be a massive pain…even setting up an environment to develop on can take some time & produce unwanted brain headaches <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f635.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f635.png?v8">😵</span></p>
+<p>Enter <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>! This mystical application gives us a way to run all our services or <strong>docker images</strong> across <strong>multiple environments</strong> preventing that initial environment setup and management fuss!</p>
+<p>With multiple layers / microservices working together in tandem Docker builds <strong>containers</strong> around each service layer and exposes it on our dev machine.</p>
+<blockquote>
+<p>Note: Docker images & compose files can also be built & run in the cloud with something like Azure Container Registry.</p>
+</blockquote>
+<p>Before developers had to wrestle with virtualised machines like <a href="https://www.vmware.com/" target="_blank" rel="noopener">VMWare</a>, <a href="https://www.virtualbox.org" target="_blank" rel="noopener">VirtualBox</a> and other sandbox environments. Which did the job but weren’t ideal or easy to setup.</p>
+<p>With Docker as our container platform we can wrap each service up with everything it needs to run including runtime variables and even what system tools to use. <strong>This is essentially a light-weight alternative to a full virtual machine</strong>.</p>
+<p>Using the host machine we can build images & containers that are <strong>highly scalable</strong> and <strong>super fast</strong> to spin up and deploy.</p>
+<h2 id="What-are-containers"><a href="#What-are-containers" class="headerlink" title="What are containers"></a>What are containers</h2><p>A container consists of an image file with some Docker specific commands around what we want it to do once built & run. This image or <strong>dockerfile</strong> is used to bundle our application into a single executable package. This application is initially running in isolation from our host machine environment. Each image has access to a fully writable file system, volumes and other OS commands for extra functionality.</p>
+<h2 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h2><p>If you’ve ever come across a package manager like <strong>NPM</strong>, <strong>Yarn</strong> or <strong>NuGet</strong> this is the equivalent repository for docker images & containers. Much like npm you can clone / download images written by others & run them on your machine.</p>
+<h2 id="Installing-Docker"><a href="#Installing-Docker" class="headerlink" title="Installing Docker"></a>Installing Docker</h2><p>Follow the instructions here: <a href="https://www.docker.com/get-started" target="_blank" rel="noopener">https://www.docker.com/get-started</a>. <strong>Signup</strong>, <strong>Verify</strong> & <strong>Download</strong>!</p>
+<h2 id="Our-first-Dockerfile"><a href="#Our-first-Dockerfile" class="headerlink" title="Our first Dockerfile"></a>Our first Dockerfile</h2><p>Once we have docker running on our machine it’s time to test this puppy out! Create a new folder (call it whatever you like) & create a <strong>dockerfile</strong> inside. Filename is <strong>dockerfile</strong> no dot file extensions or anything required. Most modern IDE’s will have built in support for recognising this type of file. As dockerfiles do not expose a port by default we will run this using <strong>docker-compose</strong>. This is pretty much a <strong>container manager</strong> & it comes with your Docker Desktop install by default.</p>
+<p>Enjoy the whale icon <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f433.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f433.png?v8">🐳</span></p>
+<p>What are we going to build you ask? Let’s start with a simple <strong>Express server</strong> setup for some super-sweet app we have in the works <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span></p>
+<p>Github: <a href="https://github.com/shaneiadt/docker-with-node-example" target="_blank" rel="noopener">https://github.com/shaneiadt/docker-with-node-example</a></p>
+<p>Clone the repo, build & run:</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up --build</span><br></pre></td></tr></tbody></table></figure>
+<p>In your browser navigate to <a href="http://localhost:3030" target="_blank" rel="noopener">http://localhost:3030</a> and you should see that our node server is running!</p>
+<h2 id="Docker-Commands"><a href="#Docker-Commands" class="headerlink" title="Docker Commands"></a>Docker Commands</h2><p>The most common docker commands you will see are as follows:</p>
+<ul>
+<li><strong>FROM</strong> (Pulls images from docker hub registry)</li>
+<li><strong>WORKDIR</strong> (Specifies the current working directory)</li>
+<li><strong>COPY</strong> (does what is says…copies files & folders)</li>
+<li><strong>RUN</strong> (executes command-line stuff…this is also know as an “<strong>Image Build Step</strong>“)</li>
+<li><strong>CMD</strong> (You will usually only see one CMD with a array of arguments)</li>
+</ul>
+<h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h2><p>What about this composer deal? Well <strong>Docker Compose</strong> handles the running of multiple containers.</p>
+<p>First you setup what services to orchestrate including the service name, container to build & what port to expose this service on. It is also good practice to get into the habit of cleaning up your containers by running:</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose down</span><br></pre></td></tr></tbody></table></figure>
+<p>As we are only dipping our toe into the Docker world I won’t go too much into volumes for interacting with the file system or some other docker / compose commands. If you’d like to read more I’d highly recommend taking a whirl through the <a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">official docs</a>.</p>
+<p>To summarise Docker is awesome, play around with it & try converting a small project into a container for practice.</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -192,6 +193,23 @@
     
     </div>
     
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Docker/">#Docker</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2019/09/11/Start-Using-The-Shadow-DOM/">Start Using the Shadow DOM</a>
+            
+        </span>
+    </div>
     
 </article>
 

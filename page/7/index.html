@@ -22,7 +22,7 @@
 <meta name="keywords" content="Web Development, JavaScript, CSS,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ram.blings">
-<meta property="og:url" content="https://shaneiadt.github.io/page/5/index.html">
+<meta property="og:url" content="https://shaneiadt.github.io/page/7/index.html">
 <meta property="og:site_name" content="Ram.blings">
 <meta property="og:description" content="A collection of tech related ramblings from a man with a computer.">
 <meta property="og:locale" content="en">
@@ -118,52 +118,68 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2019/07/29/Webpack-4-Beginners/" itemprop="url">Webpack 4 Beginners</a>
+            <a href="/2019/03/29/CSS-Magic-is-real-with-Houdini/" itemprop="url">(CSS) Magic Is Real With Houdini</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2019-07-29T17:56:02.000Z" itemprop="datePublished">Jul 29 2019</time>
+            <time datetime="2019-03-29T15:50:25.000Z" itemprop="datePublished">Mar 29 2019</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 minutes read (About 589 words)
+            6 minutes read (About 919 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>In this article we will run over the basic setup for <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack 4</a>. Why Webpack & not some other bundler like <a href="https://parceljs.org/" target="_blank" rel="noopener">Parcel</a> or <a href="https://rollupjs.org/guide/en/" target="_blank" rel="noopener">RollUp</a>? I know Webpack so I figured that would be a good start, lets keep it simple shall we!</p>
-<p><img src="https://i.imgflip.com/1tlvet.jpg" alt></p>
-<p>Bundlers in general can make your dev life a lot easier & far more productive, but some can absorb you into config hell! For example here’s a zero configuration Webpack project minus the hair plugging.</p>
-<p>Let’s create our project & setup npm as our package manager of choice. The -y flag tells npm to use the default package.json configuration, I don’t care for questions thank you very much.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir webpack-4-begginners</span><br><span class="line">cd webpack-4-beginners</span><br><span class="line">npm init -y</span><br></pre></td></tr></tbody></table></figure>
-<p>Oh yeah we need to install Webpack 4 & Webpack CLI as our development dependencies (the -D flag is shorthand for –save-dev) & also if you don’t already have it <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node</a>(I’m currently using v10.15.3).</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack webpack-cli -D</span><br></pre></td></tr></tbody></table></figure>
-<p>Now we can create our main index.js file which will be the entry point for our application…or at least that’s what we’ll tell our bundler. By default with zero config Webpack will look for our entry file in the src folder of the current directory. So let us oblige. Otherwise you’ll get an error & have to create it anyway, suit yourself really.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir src</span><br><span class="line">cd src</span><br><span class="line"></span><br><span class="line">echo >> index.js (Windows)</span><br><span class="line"></span><br><span class="line">touch index.js (Mac)</span><br></pre></td></tr></tbody></table></figure>
-<p>Let’s throw something into our index file.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log('Webpack 4 Beginners')</span><br></pre></td></tr></tbody></table></figure>
-<p>All we need to do now is tell Webpack to do it’s magic on the stuff using the scripts section of our package.json file.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  "name": "webpack-4-beginners",</span><br><span class="line">  "version": "1.0.0",</span><br><span class="line">  "description": "",</span><br><span class="line">  "main": "./src/index.js",</span><br><span class="line">  "scripts": {</span><br><span class="line">    "build": "webpack"</span><br><span class="line">  },</span><br><span class="line">  "keywords": [],</span><br><span class="line">  "author": "",</span><br><span class="line">  "license": "ISC",</span><br><span class="line">  "devDependencies": {</span><br><span class="line">    "webpack": "^4.38.0",</span><br><span class="line">    "webpack-cli": "^3.3.6"</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Let the bundling commence!!! Alternatively you could run <code>webpack</code> straight from the command-line.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></tbody></table></figure>
-<p>Will you look at that we did it! A lovely <strong>dist</strong> folder containing a <strong>main.js</strong> file with some crazy looking JavaScript inside.</p>
-<p>This is our bundled js believe it our not. To demonstrate copy the code from your main.js file open your console window in Chrome (or whatever browser you’re using) & run it.</p>
-<p><img src="/images/webpack-4-beginners/first-bundle.jpg" alt></p>
-<p>We now have a simple module bundler setup, what now? Let’s test our bundler to make sure it’s actually working.</p>
-<p>Create a new file in your src directory called message.js with the below js.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default "Webpack is Awesome!"</span><br></pre></td></tr></tbody></table></figure>
-<p>Update your index.js file to the below</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import message from './message'</span><br><span class="line"></span><br><span class="line">console.log(message)</span><br></pre></td></tr></tbody></table></figure>
-<p>Now run our bundler again <code>npm run build</code> and boom our main.js file has been updated once more. Let’s inspect the output as we’re only using console.log through the command-line. Run <code>node dist/main.js</code> from your project directory & you should see something <strong>Awesome</strong> appear. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8">✨</span></p>
-<p>Our bundler is looking pretty good now, these are just the basics of course. If you fancy diving into some more details around configuring your bundler why not check out the <a href="https://webpack.js.org/concepts/" target="_blank" rel="noopener">docs</a>.</p>
-<p>In the next article I will be covering <strong>Webpack Dev Server</strong> to improve our development workflow, along with <strong>Entry</strong> & <strong>Output</strong> configuration our your bundler.</p>
-<p><strong>Github Repo</strong>: <a href="https://github.com/shaneiadt/webpack-4-beginners" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners</a></p>
-<p>Exciting times I know woop woop! Go forth and bundle my friends <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png?v8">👋</span></p>
+        <p>Fed up with bloated hacky JavaScript manipulating CSS? <em>Me too!</em> </p>
+<p>Enter the <a href="/#The-Task-Force">Houdini Task Force</a> with one <em>simple</em> goal…outline a collection of drafts to be accepted by <a href="https://www.w3.org/" target="_blank" rel="noopener">W3C</a>  & added as common web standards. Well it doesn’t seem that simple but these guys are making great strides for the web and developers sake.</p>
+<p><img src="https://media.giphy.com/media/yYSSBtDgbbRzq/giphy.gif" alt="The struggle is real, thanks CSS!" title="The struggle is real, thanks CSS!"></p>
+<p>Houdini will in essence offer the ability to extend the CSS rendering engine with low-level JavaScript APIs. Which will allow authors to extend the CSS engine offering massive improvements & capabilities from a user experience & performance point of view.</p>
+<h2 id="Specifications"><a href="#Specifications" class="headerlink" title="Specifications"></a>Specifications</h2><ul>
+<li><a href="/#Worklets">Worklets</a></li>
+<li><a href="/#CSS-Paint-API">CSS Paint API</a></li>
+<li><a href="/#CSS-Animation-Worklet">CSS Animation Worklet</a></li>
+<li><a href="/#CSS-Layout-API">CSS Layout API</a></li>
+<li><a href="/#Typed-CSSOM">Typed CSSOM</a></li>
+</ul>
+<h3 id="Worklets"><a href="#Worklets" class="headerlink" title="Worklets"></a>Worklets</h3><p><a href="https://drafts.css-houdini.org/worklets/" target="_blank" rel="noopener">View specification</a></p>
+<p>Worklets themselves aren’t really anything to write home about. Similar to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API" target="_blank" rel="noopener">Web Worker</a> a Worklet is more of a concept that makes use of ES2015 class definitions helping to expose these low-level APIs within our browser.</p>
+<p>So what is a Worklet? A Worklet is almost like a mini event loop (<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&vl=en" target="_blank" rel="noopener">what is the event loop</a>) that can attach or reposition itself to different events it is configured to. In the words of <a href="https://twitter.com/dassurma?lang=en" target="_blank" rel="noopener">Surma</a> think of it as your swiss army knife to accessing these low-level APIs.</p>
+<p>Let’s look at our first low-level API that Worklets give us access to, the CSS Paint API.</p>
+<h4 id="As-most-of-these-specs-are-still-in-the-draft-phase-you-may-need-to-enable-experimental-web-features-to-see-them-in-action-chrome-flags-enable-experimental-web-platform-features"><a href="#As-most-of-these-specs-are-still-in-the-draft-phase-you-may-need-to-enable-experimental-web-features-to-see-them-in-action-chrome-flags-enable-experimental-web-platform-features" class="headerlink" title="As most of these specs are still in the draft phase you may need to enable experimental web features to see them in action. chrome://flags/#enable-experimental-web-platform-features"></a><strong>As most of these specs are still in the draft phase you may need to enable experimental web features to see them in action. <code>chrome://flags/#enable-experimental-web-platform-features</code></strong></h4><p><a href="http://houdini.glitch.me/worklets" target="_blank" rel="noopener">Read more about Worklets</a></p>
+<h4 id="CSS-Paint-API"><a href="#CSS-Paint-API" class="headerlink" title="CSS Paint API"></a>CSS Paint API</h4><p><a href="https://drafts.css-houdini.org/css-paint-api/" target="_blank" rel="noopener">View specification</a></p>
+<p>Ok what the hell does this thing do you ask & why should I be excited about it! Imagine being able to programmatically control exactly what, when & how an object is drawn to the screen. With greater control using SVGs or jamming image files into your CSS may well become less of a headache.</p>
+<p>Instead of using things like <code>background-image</code> or <code>border-image</code> you can now reference a paint worklet like so <code>paint(myPainter)</code>. Enough with the jabber show me the goodies dag-nab-it!</p>
+<p><a href="https://googlechromelabs.github.io/houdini-samples/paint-worklet/diamond-shape/" target="_blank" rel="noopener">Example</a></p>
+<p><a href="http://houdini.glitch.me/paint" target="_blank" rel="noopener">Read more about CSS Paint API</a></p>
+<h4 id="CSS-Animation-Worklet"><a href="#CSS-Animation-Worklet" class="headerlink" title="CSS Animation Worklet"></a>CSS Animation Worklet</h4><p><a href="https://drafts.css-houdini.org/css-animationworklet/" target="_blank" rel="noopener">View specification</a></p>
+<p>This super-sweet Worklet allows us to run a set of instructions on a device at it’s native frame rate preventing jumpy & awkward animations. The first port of call for most animations in CSS is <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank" rel="noopener">CSS Transitions</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation" target="_blank" rel="noopener">CSS Animations</a> & the more complex <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank" rel="noopener">Web Animations API</a>. With the CSS Animation API / Worklet we can listen for any user input even scroll events!</p>
+<p>This topic is quite extensive so to prevent boredom I suggest checking out the example below & read more if you fancy.</p>
+<p><a href="https://googlechromelabs.github.io/houdini-samples/animation-worklet/spring-timing/" target="_blank" rel="noopener">Example</a></p>
+<p><a href="https://developers.google.com/web/updates/2018/10/animation-worklet" target="_blank" rel="noopener">Read more about CSS Animation Worklet</a></p>
+<h4 id="CSS-Layout-API"><a href="#CSS-Layout-API" class="headerlink" title="CSS Layout API"></a>CSS Layout API</h4><p><a href="https://drafts.css-houdini.org/css-layout-api/" target="_blank" rel="noopener">View specification</a></p>
+<p>With the ability to create & control your layouts with enormous detail never imagined before! The layout worklet can even help you build your own layouts & pass them into the <code>display</code> property, like so <code>display: layout('myLayout')</code>. </p>
+<p><a href="https://googlechromelabs.github.io/houdini-samples/layout-worklet/masonry/" target="_blank" rel="noopener">Example</a></p>
+<p><a href="https://houdini.glitch.me/layout" target="_blank" rel="noopener">Read more about the CSS Layout API</a></p>
+<h3 id="Typed-CSSOM"><a href="#Typed-CSSOM" class="headerlink" title="Typed CSSOM"></a>Typed CSSOM</h3><p><a href="https://drafts.css-houdini.org/css-typed-om/" target="_blank" rel="noopener">View specification</a></p>
+<p>CSS Object Model or Cascading Style Sheets Object Model (Typed CSSOM). If you are familiar with a programming language or two you might have stumbled upon some Object Oriented stuff & data types. What this specification focuses on is the typing part, mainly the typing of CSS values as JavaScript objects.</p>
+<p>With Typed CSSOM every CSS value is now a member of a new base class called <code>CSSStyleValue</code>. These values can then be extended to help authors manage calculations & different value types such as <code>rem</code>, <code>px</code>, <code>em</code> & <code>percent</code>.</p>
+<p><a href="https://codepen.io/impressivewebs/pen/mQbqGR" target="_blank" rel="noopener">Example</a></p>
+<h2 id="The-Task-Force"><a href="#The-Task-Force" class="headerlink" title="The Task Force"></a>The Task Force</h2><p>With engineers from the likes of Apple, Google & Microsoft working together (<em>i know scary right!</em>) on these potentially new web standards how could you not be excited!</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>I wanted to keep these sections brief…so there you have it! Not all the specifications are fully stable at the moment but Houdini & Worklets won’t be going away anytime soon. Keep your ear close to the coconut on this one peoples.</p>
+<h3 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h3><ul>
+<li><a href="https://ishoudinireadyyet.com/" target="_blank" rel="noopener">Is Houdini Ready Yet?</a></li>
+<li><a href="https://github.com/w3c/css-houdini-drafts/wiki" target="_blank" rel="noopener">CSS Houdini Github Wiki</a></li>
+<li><a href="https://developers.google.com/web/updates/tags/houdini" target="_blank" rel="noopener">Houdini updates on developer.google</a>.</li>
+<li><a href="https://drafts.css-houdini.org/" target="_blank" rel="noopener">Houdini draft specifications</a></li>
+<li><a href="https://www.youtube.com/watch?v=lK3OiJvwgSc" target="_blank" rel="noopener">Chrome Dev Summit Video</a></li>
+<li><a href="https://googlechromelabs.github.io/houdini-samples/" target="_blank" rel="noopener">Google Chrome Lab Houdini Examples</a></li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -197,10 +213,10 @@
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
     <div class="pagination-previous">
-        <a href="/page/4/">Prev</a>
+        <a href="/page/6/">Prev</a>
     </div>
-    <div class="pagination-next">
-        <a href="/page/6/">Next</a>
+    <div class="pagination-next is-invisible is-hidden-mobile">
+        <a href="/page/8/">Next</a>
     </div>
     <ul class="pagination-list is-hidden-mobile">
         
@@ -208,13 +224,9 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/4/">4</a></li>
-        
-        <li><a class="pagination-link is-current" href="/page/5/">5</a></li>
-        
         <li><a class="pagination-link" href="/page/6/">6</a></li>
         
-        <li><a class="pagination-link" href="/page/7/">7</a></li>
+        <li><a class="pagination-link is-current" href="/page/7/">7</a></li>
         
     </ul>
 </nav>
