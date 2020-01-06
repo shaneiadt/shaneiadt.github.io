@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: TypeScript - Ram.blings</title>
+<title>Tag: Decorators - Ram.blings</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -22,7 +22,7 @@
 <meta name="keywords" content="Web Development, JavaScript, CSS,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ram.blings">
-<meta property="og:url" content="https://shaneiadt.github.io/tags/TypeScript/index.html">
+<meta property="og:url" content="https://shaneiadt.github.io/tags/Decorators/index.html">
 <meta property="og:site_name" content="Ram.blings">
 <meta property="og:description" content="A collection of tech related ramblings from a man with a computer.">
 <meta property="og:locale" content="en">
@@ -115,7 +115,7 @@
     <section class="section section-heading">
     <div class="container">
         <div class="content">
-            <h5>#TypeScript</h5>
+            <h5>#Decorators</h5>
         </div>
     </div>
 </section>
@@ -214,91 +214,6 @@
 <li>Parameter decorators</li>
 </ul>
 <p>If you fancy reading more on TypeScript decorators <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_blank" rel="noopener">check this out</a>. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2019/12/18/Advanced-Generics-TypeScript/" itemprop="url">Advanced Generics - TypeScript</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2019-12-18T18:05:34.000Z" itemprop="datePublished">Dec 18 2019</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 minutes read (About 608 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <h2 id="Quick-Re-cap-on-Generics"><a href="#Quick-Re-cap-on-Generics" class="headerlink" title="Quick Re-cap on Generics"></a>Quick Re-cap on Generics</h2><p><strong>TypeScript generics</strong> are pure awesomeo-5000! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f47e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f47e.png?v8">👾</span></p>
-<p>They give us the ability to define a <em>dynamic type</em> & use it within our applications. With the power generics give us we can make our classes & functions highly flexible.</p>
-<p>Let’s start with a simple example:</p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">class</span> LotsOfNumbers {</span><br><span class="line">  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> collecton: <span class="hljs-built_in">number</span>[]</span>) {}</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">get</span>(index: <span class="hljs-built_in">number</span>): <span class="hljs-built_in">number</span> {</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.collecton[index];</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">class</span> LotsOfStrings {</span><br><span class="line">  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> collecton: <span class="hljs-built_in">string</span>[]</span>) {}</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">get</span>(index: <span class="hljs-built_in">number</span>): <span class="hljs-built_in">string</span> {</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.collecton[index];</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>We have two classes that are extremely similar in nature. The main difference is the elements type stored in our collection array.</p>
-<p>Now let’s look at a <strong>generic-i-fied</strong> version that can expect both data types!</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LotsOfAnything</span><<span class="hljs-title">T</span>> </span>{</span><br><span class="line">  <span class="hljs-keyword">constructor</span>(public collecton: T[]) {}</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">get</span>(index: number): T {</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.collecton[index];</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>We can think of <strong>T</strong> just like an argument, we could name it whatever we want but <strong>T</strong> is the current convention.</p>
-<p>Now any time we create a new instance of of <strong>LotsOfAnything</strong> we just specify the type along with it.</p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> strings = <span class="hljs-keyword">new</span> LotsOfAnything<<span class="hljs-built_in">string</span>>([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]);</span><br><span class="line"><span class="hljs-keyword">const</span> numbers = <span class="hljs-keyword">new</span> LotsOfAnything<<span class="hljs-built_in">number</span>>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);</span><br></pre></td></tr></tbody></table></figure>
-<p>An awesome example of reusable code <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png?v8">💥</span></p>
-<p>Moving on…</p>
-<h2 id="Type-Inference-amp-Generics"><a href="#Type-Inference-amp-Generics" class="headerlink" title="Type Inference & Generics"></a>Type Inference & Generics</h2><p>Using our example above, if we remove the type annotation when creating our new objects from our <strong>LotsOfAnything</strong> class you’ll notice everything still works fine!</p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> strings = <span class="hljs-keyword">new</span> LotsOfAnything([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]);</span><br><span class="line"><span class="hljs-keyword">const</span> numbers = <span class="hljs-keyword">new</span> LotsOfAnything([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);</span><br></pre></td></tr></tbody></table></figure>
-<p>Strange you might think but <strong>TypeScript</strong> is a clever one you see…this is an example of <strong>Type Inference</strong>.</p>
-<p>When we pass in an array to the class constructor TypeScript knows it’s an array of strings / numbers. It looks at the collection & determines the type for us <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8">😁</span></p>
-<h2 id="Function-Generics"><a href="#Function-Generics" class="headerlink" title="Function Generics"></a>Function Generics</h2><p>Consider the two functions below.</p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printStrings</span>(<span class="hljs-params">arr: <span class="hljs-built_in">string</span>[]</span>): <span class="hljs-title">void</span> </span>{</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> value <span class="hljs-keyword">in</span> arr) {</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(value);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printNumbers</span>(<span class="hljs-params">arr: <span class="hljs-built_in">number</span>[]</span>): <span class="hljs-title">void</span> </span>{</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> value <span class="hljs-keyword">in</span> arr) {</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(value);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>We can see some clear code duplication here, but how can we tidy things up?…I’ll give you a hint…it rhymes with “<strong><em>lemerics</em></strong>“ <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8">😉</span></p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print</span><<span class="hljs-title">T</span>>(<span class="hljs-params">arr: <t>[]</t></span>): <span class="hljs-title">void</span></span>{</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> value <span class="hljs-keyword">in</span> arr) {</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(value);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Now we have a function that can print an array with multiple types. <strong>SUPER SICK</strong>! How do we call this function?</p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print<<span class="hljs-built_in">number</span>>([<span class="hljs-number">6</span>, <span class="hljs-number">9</span>, <span class="hljs-number">6</span>]);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// or with type inference</span></span><br><span class="line"></span><br><span class="line">print([<span class="hljs-number">6</span>, <span class="hljs-number">9</span>, <span class="hljs-number">6</span>]);</span><br></pre></td></tr></tbody></table></figure>
-<p>TypeScript is super intelligent don’t underestimate the compiler <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f432.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f432.png?v8">🐲</span></p>
-<p>Generally as a good “<em>rule of thumb</em>“ it’s best to include the type annotation when using Generics with classes & functions even though most times it can be figured out automatically.</p>
-<p>This just helps rule out any accidental bugs <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f41e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f41e.png?v8">🐞</span></p>
-<h2 id="Generic-Constraints"><a href="#Generic-Constraints" class="headerlink" title="Generic Constraints"></a>Generic Constraints</h2><p>Where does the buck stop?</p>
-<p>Right now <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f633.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f633.png?v8">😳</span> …consider the below two classes.</p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">class</span> Car {</span><br><span class="line">  print() {</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Car'</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">class</span> House {</span><br><span class="line">  print() {</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'House'</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Now let’s write a simple function that accepts a generic dynamic type & attempt to call the print method on each object in a given array.</p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printHousesOrCars</span><<span class="hljs-title">T</span>>(<span class="hljs-params">arr: T[]</span>): <span class="hljs-title">void</span> </span>{</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i < arr.length; i++) {</span><br><span class="line">    arr[i].print();</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>TypeScript will have an issue calling a method on a dynamically typed object.</p>
-<p>However we can get around this by specifying a constraint to promise when we invoke the print method that it will exist….using Interfaces woop woop!</p>
-<figure class="highlight typescript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">interface</span> Printable {</span><br><span class="line">  print(): <span class="hljs-built_in">void</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printHousesOrCars</span><<span class="hljs-title">T</span> <span class="hljs-title">extends</span> <span class="hljs-title">Printable</span>>(<span class="hljs-params">arr: T[]</span>): <span class="hljs-title">void</span> </span>{</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i < arr.length; i++) {</span><br><span class="line">    arr[i].print();</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">printHousesOrCars<house>([<span class="hljs-keyword">new</span> House(), <span class="hljs-keyword">new</span> House(), <span class="hljs-keyword">new</span> House()]);</house></span><br><span class="line">printHousesOrCars<car>([<span class="hljs-keyword">new</span> Car(), <span class="hljs-keyword">new</span> Car(), <span class="hljs-keyword">new</span> Car()]);</car></span><br></pre></td></tr></tbody></table></figure>
-<p>Generics can also maintain a contract by extending an interface like above. We are using a generic constraint to limit the type of arguments the function accepts.</p>
-<p>Pretty neat right <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8">😏</span></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
