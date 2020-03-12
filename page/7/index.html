@@ -118,67 +118,77 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2019/07/31/Webpack-4-Beginners-Configuration/" itemprop="url">Webpack-4-Beginners-Configuration</a>
+            <a href="/2019/08/19/Webpack-4-Beginners-Dev-IT-Faster/" itemprop="url">Webpack 4 Beginners Dev IT Faster</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2019-07-31T18:09:58.000Z" itemprop="datePublished">Jul 31 2019</time>
+            <time datetime="2019-08-19T14:54:28.000Z" itemprop="datePublished">Aug 19 2019</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            5 minutes read (About 800 words)
+            5 minutes read (About 817 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>Welcome to Part 2 of our journey into understanding Webpack just a wee bit better together! If you haven’t read <a href="https://shaneiadt.github.io/2019/07/29/Webpack-4-Beginners/">Part 1</a> I suggest you check it out.</p>
-<p>We left off from here: <a href="https://github.com/shaneiadt/webpack-4-beginners/tree/master/zero-config" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners/tree/master/zero-config</a></p>
-<p>So we’ve set up our basic zero config bundler project, what now?</p>
-<h2 id="Two-Modes-One-Entry-File"><a href="#Two-Modes-One-Entry-File" class="headerlink" title="Two Modes, One Entry File"></a>Two Modes, One Entry File</h2><p>Let’s spice things up by taking advantage of the two modes our bundler can be set to, <strong>development</strong> & <strong>production</strong>. By default Webpack will assume you are running in <strong>production mode</strong> if not specified.</p>
-<p>What’s the difference? Production reduces the bundle as much as it can & development contains things like comments & line-breaks that make debugging easier. We can also setup source-maps but we won’t get into it for now.</p>
-<p>We’ll set our mode by updating our npm build script.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">    "build": "webpack --mode development"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
-<p>and of course run the following <code>npm run build</code>.</p>
-<p>Now have a look at our <strong>main.js</strong> file, you can see it’s not bundled within an inch of it’s life. Perfect for…you guessed it, development purposes!</p>
-<h2 id="Entry-amp-Output"><a href="#Entry-amp-Output" class="headerlink" title="Entry & Output"></a>Entry & Output</h2><p>What else can we configure? What if we want to specify a <strong>different</strong> <strong>entry</strong> & <strong>output file</strong>? Well we can do that too from our build script.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">    "build": "webpack --mode development ./src/a-different-entry-file.js --output ./temp/new-bundle.js"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
-<p>If we run the above we’re saying hey Webpack our entry file is now here <code>./src/a-different-entry-file.js</code> and by the way output the bundle here <code>./temp/new-bundle.js</code>. Don’t worry Webpack will create the folder for us <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8">😉</span></p>
-<h2 id="Multiple-Entry-Files"><a href="#Multiple-Entry-Files" class="headerlink" title="Multiple Entry Files"></a>Multiple Entry Files</h2><p>Let’s say we have multiple entry files how would we manage something like that. Well with something as simple as this.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">    "build": "webpack --mode development index=./src/index.js entry2=./src/a-different-entry-file.js"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
-<p><strong>When specifying multiple entry files we can’t bundle to one output file</strong>. Webpack will throw an error if you try anyway.</p>
-<p>As our build script continues to grow wouldn’t it be great if we could manage our configuration options an easier way….well there is!!</p>
-<h2 id="Configuration-File"><a href="#Configuration-File" class="headerlink" title="Configuration File"></a>Configuration File</h2><p>Lets create a configuration file called <code>webpack.config.js</code> for our bundling options. This can be named anything fyi!</p>
-<p>In order for Webpack to read this file correctly we need to export what’s inside it…using <code>module.exports</code>. Add the below code into our new config file.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = {</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Now it’s time to add in our previous command-line config options.</p>
-<p><em>Note: I’ll keep this section light as these config files can get a bit confusing to say the least. Check the <a href="https://webpack.js.org/concepts/" target="_blank" rel="noopener">Webpack docs</a> for further options.</em></p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module.exports = {</span><br><span class="line">    entry: "./src/index.js"</span><br><span class="line">    mode: "development"</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Update our build script to tell Webpack where our config file is and <code>npm run build</code>.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">    "build": "webpack --config webpack.config.js"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
-<p>Awesome our bundling is coming along quite nicely. We can even split out a <strong>production</strong> & <strong>development</strong> version of our output bundles with some <strong>common options</strong> included.</p>
-<h2 id="Two-Configs-with-Options-in-Common"><a href="#Two-Configs-with-Options-in-Common" class="headerlink" title="Two Configs with Options in Common"></a>Two Configs with Options in Common</h2><p>Create a new common config file called <code>webpack.common.js</code> and add the below common config options.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const options = {</span><br><span class="line">    entry: "./src/index.js"</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">module.exports = {</span><br><span class="line">    options</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>If we wanted to include multiple entry files we could.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const options = {</span><br><span class="line">    entry: {</span><br><span class="line">        home: './src/index.js',</span><br><span class="line">        misc: './src/a-different-entry-file.js'</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">module.exports = {</span><br><span class="line">    options</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Update our <code>webpack.config.js</code> to include these common options.</p>
-<p>We’ll use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="noopener">ES6 spread operator</a> to include these settings.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const webpackCommon = require('./webpack.common')</span><br><span class="line"></span><br><span class="line">module.exports = {</span><br><span class="line">    ...webpackCommon["options"],</span><br><span class="line">    mode: "development"</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Create another file called <code>webpack.prod.js</code> and add the following.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const webpackCommon = require("./webpack.common")</span><br><span class="line"></span><br><span class="line">module.exports = {</span><br><span class="line">    ...webpackCommon["options"],</span><br><span class="line">    mode: "production"</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Finally update our npm scripts for these two new bundling modes.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">    "build": "webpack --config webpack.config.js",</span><br><span class="line">    "prod": "webpack --config webpack.prod.js"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
-<p>Finally to test out new <code>prod</code> script <code>npm run prod</code>…<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f450.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f450.png?v8">👐</span></p>
-<p><strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png?v8">💥</span> We did it! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png?v8">💥</span></strong></p>
-<p>If we check our <code>main.js</code> file now it’s completely minified as we’ve specified in our <code>webpack.prod.js</code> config file.</p>
-<p>I think that’s enough Webpack magic for now! Next time we’ll look at <strong>Webpack Dev Server</strong> in an effort to speed up our development process.</p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>We’ve gone over some core concepts in this article including both development & production bundling modes, multiple entry files & extracting our Webpack configuration options to a couple of external files for ease of management.</p>
-<p>Next topic shall be (as mentioned above) <strong>Webpack Dev Server</strong>.</p>
-<p><strong>Github Repo</strong>: <a href="https://github.com/shaneiadt/webpack-4-beginners/tree/master/a-little-config" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners/tree/master/a-little-config</a></p>
+        <p>Welcome to <strong>Part 3</strong> of our journey into understanding <strong>Webpack</strong> just a wee bit better together! If you haven’t read any of the previous articles I’d suggest having a goo.</p>
+<ul>
+<li>Part 1: <a href="https://shaneiadt.github.io/2019/07/29/Webpack-4-Beginners/">Zero Config</a></li>
+<li>Part 2: <a href="https://shaneiadt.github.io/2019/07/31/Webpack-4-Beginners-Configuration/">A Little Config Goes A long Way</a></li>
+</ul>
+<p>In this instalment we shall be attempting to <strong>speed up our development process</strong> by configuring our project with <a href="https://webpack.js.org/configuration/dev-server/" target="_blank" rel="noopener">Webpack Dev Server</a>.</p>
+<p>Dev server comes with some cool out of the box configuration such as <strong>automatic live page reloading</strong> so every time we make a change to a file our server will re-compile & serve. Some other optionals are enabling <strong>source-maps</strong> for debugging.</p>
+<p>We left off from here last time: <a href="https://github.com/shaneiadt/webpack-4-beginners/tree/master/a-little-config" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners/tree/master/a-little-config</a></p>
+<h2 id="Installing-Webpack-Dev-Server"><a href="#Installing-Webpack-Dev-Server" class="headerlink" title="Installing Webpack-Dev-Server"></a>Installing Webpack-Dev-Server</h2><p>Ok let’s get to it, first install <code>webpack-dev-server</code>.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D webpack-dev-server</span><br></pre></td></tr></tbody></table></figure>
+<p>Update our npm scripts to run our dev server locally.</p>
+<p><em>Note we are still pointing to our development config webpack setup.</em></p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">    "start": "webpack-dev-server --config webpack.config.js --open",</span><br><span class="line">    "prod": "webpack --config webpack.prod.js"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+<p>We also need to update over dev configuration settings to tell Webpack Dev Server a few important things like <strong>what directory to server locally</strong>!</p>
+<p>We’ll also enable <a href="https://blog.teamtreehouse.com/introduction-source-maps" target="_blank" rel="noopener"><strong>source-maps</strong></a> out of the box too <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p>
+<p>Update <code>webpack.config.js</code> to the below.</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> webpackCommon = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./webpack.common'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = {</span><br><span class="line">    ...webpackCommon[<span class="hljs-string">'options'</span>],</span><br><span class="line">    mode: <span class="hljs-string">'development'</span>,</span><br><span class="line">    devtool: <span class="hljs-string">'inline-source-map'</span>,</span><br><span class="line">    devServer: {</span><br><span class="line">        contentBase: <span class="hljs-string">'./dist'</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>From here yes we can run out <code>npm start</code> script to launch our dev server which will server our <strong>./dist</strong> directory like so.</p>
+<p><img src="/images/webpack-4-beginners/dev-server-console-3.jpg" alt></p>
+<p>For example sake & ease let’s create an <strong>index.html </strong>file so our bundle.js can load into for dev purposes. The simplest way to do this is to use a plugin called <code>html-webpack-plugin</code></p>
+<p>Bah! What are these <a href="https://webpack.js.org/configuration/plugins/" target="_blank" rel="noopener"><strong>plugins</strong></a> you speak of, <em>begone demon</em>!</p>
+<p>Not to fret as you may have guessed by now <em>Webpack</em> can be configured quite extensively, (quote straight from the docs) <em>plugins are the backbone of Webpack</em>!</p>
+<p>Let’s not dive to deep into plugins just quite yet.</p>
+<h2 id="Installing-Our-First-Plugin"><a href="#Installing-Our-First-Plugin" class="headerlink" title="Installing Our First Plugin"></a>Installing Our First Plugin</h2><p>We’re just telling our bundler to create a default html document to inject our bundle JavaScript file into…that’s it…simple, now let’s move on. More on <strong>plugins</strong> at a later stage.</p>
+<ol>
+<li>Install the plugin.</li>
+</ol>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D html-webpack-plugin</span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>Add it into our <code>webpack.common.js</code> file as we want it to create a new html file for both our <code>development</code> & <code>production</code> builds / bundles.</li>
+</ol>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> HtmlWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> options = {</span><br><span class="line">    entry: {</span><br><span class="line">        home: <span class="hljs-string">'./src/index.js'</span>,</span><br><span class="line">        misc: <span class="hljs-string">'./src/a-different-entry-file.js'</span></span><br><span class="line">    },</span><br><span class="line">    plugins: [<span class="hljs-keyword">new</span> HtmlWebpackPlugin()]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = {</span><br><span class="line">    options</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>And that’s it….now run <code>npm start</code> test. A new browser window should open up on your <strong>localhost</strong> displaying a blank page.</p>
+<p><strong>Open your dev tools</strong> & you should see some console logs appear!</p>
+<p><img src="/images/webpack-4-beginners/dev-server-console.jpg" alt></p>
+<h2 id="Testing-Live-Reloading"><a href="#Testing-Live-Reloading" class="headerlink" title="Testing Live Reloading"></a>Testing Live Reloading</h2><p>Brilliant stuff now let’s update something in one of our files to see if our dev server is <strong>reloading</strong> when one of our files update.</p>
+<p>Update <code>./src/message.js</code> to:</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-string">"Webpack is even awesomer with Webpack Dev Server!!!"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Now save & you should see in your <strong>terminal window</strong> our <strong>dev server re-compile</strong> all our assets & <em>automagically</em> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2747.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2747.png?v8">❇</span> update everything being served locally.</p>
+<p><img src="/images/webpack-4-beginners/dev-server-console-2.jpg" alt></p>
+<h2 id="Further-Configuration"><a href="#Further-Configuration" class="headerlink" title="Further Configuration"></a>Further Configuration</h2><p>We can configure our dev server a number of different ways. Here’s a couple examples:</p>
+<ul>
+<li><a href="https://webpack.js.org/configuration/dev-server/#devserveropenpage" target="_blank" rel="noopener">openPage</a>: which page to navigate to first when your browser pops open.</li>
+<li><a href="https://webpack.js.org/configuration/dev-server/#devserverpublicpath-" target="_blank" rel="noopener">publicPath</a>: where our static files will be served & can be accessed from.</li>
+<li><a href="https://webpack.js.org/configuration/dev-server/#devserverhttps" target="_blank" rel="noopener">https</a>: we can enable https support.</li>
+<li><a href="https://webpack.js.org/configuration/dev-server/#devserverheaders-" target="_blank" rel="noopener">headers</a>: add additional headers to all responses.</li>
+</ul>
+<p>These are only a few options, for more <a href="https://webpack.js.org/configuration/dev-server/" target="_blank" rel="noopener">read the docs</a>, at the moment let’s just set our <strong>output folder</strong> & <strong>port number</strong>.</p>
+<p>Update <code>webpack.config.js</code>.</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> webpackCommon = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./webpack.common'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = {</span><br><span class="line">    ...webpackCommon[<span class="hljs-string">'options'</span>],</span><br><span class="line">    mode: <span class="hljs-string">'development'</span>,</span><br><span class="line">    devtool: <span class="hljs-string">'inline-source-map'</span>,</span><br><span class="line">    devServer: {</span><br><span class="line">        contentBase: __dirname + <span class="hljs-string">'/dist'</span>,</span><br><span class="line">        port: <span class="hljs-number">9000</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this short article we’ve managed to speed up our development process considerably by utilising <code>webpacks-dev-server</code>. We also configured some common settings & installed our very first plugin! <em>Woop Woop</em> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8">👏</span></p>
+<p>We’ll dive more into webpack plugins next time to see how powerful and flexible they can make our build process.</p>
+<p><strong>Github Repo</strong>: <a href="https://github.com/shaneiadt/webpack-4-beginners/tree/master/dev-it-faster" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners/tree/master/dev-it-faster</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -229,9 +239,9 @@
         
         <li><a class="pagination-link" href="/page/8/">8</a></li>
         
-        <li><a class="pagination-link" href="/page/9/">9</a></li>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/10/">10</a></li>
+        <li><a class="pagination-link" href="/page/11/">11</a></li>
         
     </ul>
 </nav>
