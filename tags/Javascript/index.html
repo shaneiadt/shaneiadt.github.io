@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: JavaScript - Ram.blings</title>
+<title>Tag: Javascript - Ram.blings</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -22,7 +22,7 @@
 <meta name="keywords" content="Web Development, JavaScript, CSS,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ram.blings">
-<meta property="og:url" content="https://shaneiadt.github.io/tags/JavaScript/index.html">
+<meta property="og:url" content="https://shaneiadt.github.io/tags/Javascript/index.html">
 <meta property="og:site_name" content="Ram.blings">
 <meta property="og:description" content="A collection of tech related ramblings from a man with a computer.">
 <meta property="og:locale" content="en">
@@ -115,7 +115,7 @@
     <section class="section section-heading">
     <div class="container">
         <div class="content">
-            <h5>#JavaScript</h5>
+            <h5>#Javascript</h5>
         </div>
     </div>
 </section>
@@ -125,66 +125,60 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2020/03/12/Lets-Do-AlpineJs/" itemprop="url">Lets Do AlpineJs</a>
+            <a href="/2019/06/22/Are-Class-Components-Dead-React-Hooks/" itemprop="url">Are Class Components Dead? - React Hooks</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2020-03-12T17:05:29.000Z" itemprop="datePublished">Mar 12 2020</time>
+            <time datetime="2019-06-22T13:20:38.000Z" itemprop="datePublished">Jun 22 2019</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            3 minutes read (About 480 words)
+            9 minutes read (About 1356 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><a href="https://github.com/alpinejs/alpine" target="_blank" rel="noopener">AlpineJs</a> is (quote from Github README):</p>
-<blockquote>
-<p>“A rugged, minimal framework for composing JavaScript behaviour in your mark-up.”</p>
-</blockquote>
-<p>Pretty straight forward definition, now why might we use this framework over one of the more popular options such as <a href="https://reactjs.org/" target="_blank" rel="noopener">React</a>, <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue</a> or <a href="https://angular.io/" target="_blank" rel="noopener">Angular</a>.</p>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><ul>
-<li>It provides a minimal amount of JS for simple DOM manipulation with no massive overheads</li>
-<li><strong>NO VIRTUAL DOM</strong> so it’s easier to setup & get going</li>
-<li><strong>NO EXTRA BUILD STEPS</strong>, use the CDN link or the npm package….that’s it!</li>
-<li>Declarative & very small footprint 4kb gzipped</li>
-</ul>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>You can use <code>npm</code> or take a CDN approach like below.</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">html</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">head</span>></span></span><br><span class="line">        <span class="hljs-tag"><<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"</span> <span class="hljs-attr">defer</span>></span><span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">&#47;script</span>></span></span></span><br><span class="line"><span class="hljs-xml">    <span class="hljs-tag"><<span class="hljs-name">&#47;head</span>></span></span></span><br><span class="line"><span class="hljs-xml">    <span class="hljs-tag"><<span class="hljs-name">body</span>></span></span></span><br><span class="line"><span class="hljs-xml">        <span class="hljs-tag"><<span class="hljs-name">h1</span>></span>Lets Do AlpineJs<span class="hljs-tag"><<span class="hljs-name">&#47;h1</span>></span></span></span><br><span class="line"><span class="hljs-xml">    <span class="hljs-tag"><<span class="hljs-name">&#47;body</span>></span></span></span><br><span class="line"><span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">&#47;html</span>></span></span></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h2><p>Let’s toggle the <code>h1</code> element based on the state of the value <code>show</code>.</p>
-<p>The <code>x-data</code> attribute maintains state within it’s current element scope.</p>
-<p>The <code>@click</code> directive binds to the buttons native click event listener.</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">html</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">head</span>></span></span><br><span class="line">        <span class="hljs-tag"><<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"</span> <span class="hljs-attr">defer</span>></span><span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">&#47;script</span>></span></span></span><br><span class="line"><span class="hljs-xml">    <span class="hljs-tag"><<span class="hljs-name">&#47;head</span>></span></span></span><br><span class="line"><span class="hljs-xml">    <span class="hljs-tag"><<span class="hljs-name">body</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">"{show:false}"</span>></span></span></span><br><span class="line"><span class="hljs-xml">        <span class="hljs-tag"><<span class="hljs-name">h1</span> <span class="hljs-attr">x-show</span>=<span class="hljs-string">"show"</span>></span>Lets Do AlpineJs<span class="hljs-tag"><<span class="hljs-name">&#47;h1</span>></span></span></span><br><span class="line"><span class="hljs-xml">        <span class="hljs-tag"><<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"show=!show"</span>></span>Toggle<span class="hljs-tag"><<span class="hljs-name">&#47;button</span>></span></span></span><br><span class="line"><span class="hljs-xml">    <span class="hljs-tag"><<span class="hljs-name">&#47;body</span>></span></span></span><br><span class="line"><span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">&#47;html</span>></span></span></span><br></pre></td></tr></tbody></table></figure>
-<p>Awesome…what else do we have?</p>
-<p>All snippets can be found at <a href="https://codepen.io/shaneiadt/pen/NWqypaV?editors=1100" target="_blank" rel="noopener">https://codepen.io/shaneiadt/pen/NWqypaV?editors=1100</a> which is setup with <strong>AlpineJs</strong> & <a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap 4</a>.</p>
-<h2 id="Conditional-Class-Rendering"><a href="#Conditional-Class-Rendering" class="headerlink" title="Conditional Class Rendering"></a>Conditional Class Rendering</h2><p>For things like Modal windows. You can bind to pretty much any element attribute.</p>
-<p>If you have ever used Vue, a lot of this will feel familiar.</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">x-data</span>=<span class="hljs-string">"{ isModalOpen: false }"</span>></span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">"{'show-modal': isModalOpen === true}"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"dialog"</span>></span></span><br><span class="line">        <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-dialog"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"document"</span>></span></span><br><span class="line">            <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-content"</span>></span></span><br><span class="line">                <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>></span></span><br><span class="line">                    <span class="hljs-tag"><<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-title"</span>></span>Modal title<span class="hljs-tag"><<span class="hljs-name">&#47;h5</span>></span></span><br><span class="line">                    <span class="hljs-tag"><<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"isModalOpen = false"</span>></span></span><br><span class="line">                        <span class="hljs-tag"><<span class="hljs-name">span</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>></span>&times;<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span></span><br><span class="line">                    <span class="hljs-tag"><<span class="hljs-name">&#47;button</span>></span></span><br><span class="line">                <span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">                <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>></span></span><br><span class="line">                    <span class="hljs-tag"><<span class="hljs-name">p</span>></span>Modal body text goes here.<span class="hljs-tag"><<span class="hljs-name">&#47;p</span>></span></span><br><span class="line">                <span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">                <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-footer"</span>></span></span><br><span class="line">                    <span class="hljs-tag"><<span class="hljs-name">button</span> <span class="hljs-attr">x-ref</span>=<span class="hljs-string">"modalCloseButton"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-secondary"</span></span></span><br><span class="line"><span class="hljs-tag">                        @<span class="hljs-attr">click</span>=<span class="hljs-string">"isModalOpen = false"</span>></span>Close<span class="hljs-tag"><<span class="hljs-name">&#47;button</span>></span></span><br><span class="line">                <span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">            <span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">        <span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"isModalOpen = true"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>></span></span><br><span class="line">    Open Modal</span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">&#47;button</span>></span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Other-Directives"><a href="#Other-Directives" class="headerlink" title="Other Directives"></a>Other Directives</h2><p>Here are some examples of other directives <strong>AlpineJs</strong> gives us.</p>
-<p><code>x-show</code></p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card"</span> <span class="hljs-attr">x-show</span>=<span class="hljs-string">"currentTab === 'Home'"</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card-body"</span>></span></span><br><span class="line">        <span class="hljs-tag"><<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card-title"</span>></span>Home<span class="hljs-tag"><<span class="hljs-name">&#47;h5</span>></span></span><br><span class="line">        <span class="hljs-tag"><<span class="hljs-name">h6</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card-subtitle mb-2 text-muted"</span>></span>subtitle<span class="hljs-tag"><<span class="hljs-name">&#47;h6</span>></span></span><br><span class="line">        <span class="hljs-tag"><<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card-text"</span>></span>Paragraph text goes here!<span class="hljs-tag"><<span class="hljs-name">&#47;p</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line"><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br></pre></td></tr></tbody></table></figure>
-<p><code>x-model</code>, <code>x-text</code>, <code>x-html</code></p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">p</span> <span class="hljs-attr">x-html</span>=<span class="hljs-string">"exampleModel"</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;p</span>></span></span><br><span class="line"><span class="hljs-tag"><<span class="hljs-name">p</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">"exampleModel"</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;p</span>></span></span><br><span class="line"><span class="hljs-tag"><<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">x-model</span>=<span class="hljs-string">"exampleModel"</span> /></span></span><br></pre></td></tr></tbody></table></figure>
-<p><code>x-ref</code></p>
-<p>Here’s an example fetching some data on button click & using the magic <code>$refs</code> property to update the innerHTML of a div element.</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">div</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">button</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span></span></span><br><span class="line"><span class="hljs-tag">        @<span class="hljs-attr">click</span>=<span class="hljs-string">"fetch('https://jsonplaceholder.typicode.com/todos/1')</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">                .then(response => response.json())</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">                .then(json => { $refs.todo.innerHTML = JSON.stringify(json) })"</span>></span></span><br><span class="line">        Fetch Todo Title</span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">&#47;button</span>></span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">x-ref</span>=<span class="hljs-string">"todo"</span>></span></span><br><span class="line">        Click button above to fetch some data</span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line"><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br></pre></td></tr></tbody></table></figure>
-<p><code>x-for</code></p>
-<p>Loop through stuff <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p>
-<p>Only catch with this one is we need to use the <code>template</code> element not a regular DOM element.</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">template</span> <span class="hljs-attr">x-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item"</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">x-text</span>=<span class="hljs-string">"item"</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line"><span class="hljs-tag"><<span class="hljs-name">&#47;template</span>></span></span><br></pre></td></tr></tbody></table></figure>
-<p>These are only a few examples, to read about the rest visit <a href="https://github.com/alpinejs/alpine" target="_blank" rel="noopener">Alpine</a> on Github.</p>
-<p>This is really all you need to get going making those UI’s more reactive.</p>
-<p>There are some additional <strong>Magic Properties</strong> around dispatching custom events (<code>$dispatch</code>), executing functions after Alpine has made it’s DOM updates (<code>$nextTick</code>) & dipping into the native event object (<code>$event</code>).</p>
-<p>All-in-all I for one really enjoy using <strong>Alpine</strong> & fully encourage every web developer to give it a shot. You’ll be surprised what you can do with minimal effort.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://github.com/alpinejs/alpine" target="_blank" rel="noopener">AlpineJS</a></li>
-<li><a href="https://codepen.io/shaneiadt/pen/NWqypaV?editors=1100" target="_blank" rel="noopener">CodePen Examples</a></li>
-</ul>
+        <p>Since the full release of Hooks with React version 16.8 the community has almost gone insane. Some developers have gone so bat shit crazy they’ve re-written all their apps to use React Hooks!</p>
+<p><img src="https://cdn-images-1.medium.com/max/2600/1*xcDT-neKHP7E3quS9n30gw.png" alt></p>
+<p><a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="noopener">What are hooks</a>? Plainly put, like most things JavaScript they’re just functions….simples! But with the power of scope closures they expose the beauty of Reacts state, lifecycle methods & even Context API.</p>
+<p>You can even <a href="https://reactjs.org/docs/hooks-custom.html" target="_blank" rel="noopener">write your own hooks</a> if you fancy.</p>
+<p>What kind of stuff can we do with Hooks, why should I care? Class components work just fine when I need some state & functional components are great for returning some JSX using a straight forward JS function.</p>
+<p>But wouldn’t it be cool if you could upgrade these functional components to have their own internal state or do some processing when mounted instead of relying on the parent component to decide if it needs to be re-render or not.</p>
+<p>Let’s start off simple & sprinkle a bit of state on the situation.</p>
+<h2 id="useState"><a href="#useState" class="headerlink" title="useState"></a><a href="https://reactjs.org/docs/hooks-state.html" target="_blank" rel="noopener">useState</a></h2><p>This hook is amazing, it works slightly different from the class based approach. Instead of managing your state in one big object, which you still can do of course. With <strong>useState</strong> we can create slices of state like so.</p>
+<p><a href="https://codesandbox.io/embed/hopeful-bassi-tvtsw" target="_blank" rel="noopener">View Demo Code</a></p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">"react-dom"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">WhatTheState</span>(<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);</span><br><span class="line">  <span class="hljs-keyword">const</span> [text, setText] = useState(<span class="hljs-literal">null</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    <div style="{{" <span class="attr">textAlign</div></span>: <span class="string">"center"</span> }}><br><span class="line">      {text !== <span class="hljs-literal">null</span> ? (</span><br><span class="line">        <div></div></span><br><span class="line">          <p></p></span><br><span class="line">            Hello my name is {text} & you pushed my button {count} times</span><br><span class="line">          <<span class="hljs-regexp">/p></span></span><br><span class="line"><span class="hljs-regexp">          <button onclick="{()" => setCount(count + 1)}>Click mebutton></button></span><br><span class="hljs-line">        <<span class="hljs-regexp">/div></span></span><br><span class="hljs-line"><span class="hljs-regexp">      ) : null}</span></span><br><span class="hljs-line"><span class="hljs-regexp">      {text === null ? <p>Enter your name to start pushing!!p> : <span class="hljs-literal">null</span>}</p></span><br><span class="hljs-line">      <p></p></span><br><span class="hljs-line">        <input< span><br><span class="hljs-line">          type=<span class="hljs-string">"text"</span></span><br><span class="hljs-line">          value={text}</span><br><span class="hljs-line">          onChange={event => setText(event.target.value)}</span><br><span class="hljs-line">        /></span><br><span class="hljs-line">      <<span class="hljs-regexp">/p></span></span><br><span class="hljs-line"><span class="hljs-regexp">    div></span><br><span class="hljs-line">  );</span><br><span class="hljs-line">}</span><br><span class="hljs-line"></span><br><span class="hljs-line"><span class="hljs-keyword">const</span> rootElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>);</span><br><span class="hljs-line">ReactDOM.render(<span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">WhatTheState</span> /></span>, rootElement);</span></span><br></span></input<></span></span></span></pre></td></tr></tbody></table></figure>
+<p>Bam your functional components can now manage their own state in slices….super sweet I know. The only downside to using this approach is when you are updating your state slice you will need to supply all values otherwise they won’t be included.</p>
+<p>What’s next you ask? What about when our component mounts, checks for updates or is destroyed?</p>
+<p>Lets control what happens when our component mounts to the DOM using the handy <strong>useEffect</strong> hook.</p>
+<h2 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a><a href="https://reactjs.org/docs/hooks-effect.html" target="_blank" rel="noopener">useEffect</a></h2><p>We can manipulate or hook into the render cycles of our component now like so.</p>
+<p><a href="https://codesandbox.io/embed/new" target="_blank" rel="noopener">View Code Demo</a></p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React, { useState, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">"react-dom"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">WhatTheState</span>(<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);</span><br><span class="line">  <span class="hljs-keyword">const</span> [text, setText] = useState(<span class="hljs-literal">null</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =></span> {</span><br><span class="line">    <span class="hljs-comment">// Just Like componentDidMount()</span></span><br><span class="line">    setText(<span class="hljs-string">"Johnny"</span>)</span><br><span class="line">  },[])</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    <div style="{{" <span class="attr">textAlign</div></span>: <span class="string">"center"</span> }}><br><span class="line">      {text !== <span class="hljs-literal">null</span> ? (</span><br><span class="line">        <div></div></span><br><span class="line">          <p></p></span><br><span class="line">            Hello my name is {text} & you pushed my button {count} times</span><br><span class="line">          <<span class="hljs-regexp">/p></span></span><br><span class="line"><span class="hljs-regexp">          <button onclick="{()" => setCount(count + 1)}>Click mebutton></button></span><br><span class="hljs-line">        <<span class="hljs-regexp">/div></span></span><br><span class="hljs-line"><span class="hljs-regexp">      ) : null}</span></span><br><span class="hljs-line"><span class="hljs-regexp">      {text === null ? <p>Enter your name to start pushing!!p> : <span class="hljs-literal">null</span>}</p></span><br><span class="hljs-line">      <p></p></span><br><span class="hljs-line">        <input< span><br><span class="hljs-line">          type=<span class="hljs-string">"text"</span></span><br><span class="hljs-line">          value={text}</span><br><span class="hljs-line">          onChange={event => setText(event.target.value)}</span><br><span class="hljs-line">        /></span><br><span class="hljs-line">      <<span class="hljs-regexp">/p></span></span><br><span class="hljs-line"><span class="hljs-regexp">    div></span><br><span class="hljs-line">  );</span><br><span class="hljs-line">}</span><br><span class="hljs-line"></span><br><span class="hljs-line"><span class="hljs-keyword">const</span> rootElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>);</span><br><span class="hljs-line">ReactDOM.render(<span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">WhatTheState</span> /></span>, rootElement);</span></span><br></span></input<></span></span></span></pre></td></tr></tbody></table></figure>
+<p>No need to create a stateful container anymore! Cool right? Well that’s not all we can do. We can also trigger the render based on some state change by telling the hook what to watch. Add variables to the array you’d like your component to watch & your useEffect() function will trigger again.</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =></span> {</span><br><span class="line">    <span class="hljs-comment">// Similar to componentDidUpdate, we are watching for changes to the text variable</span></span><br><span class="line">    setText(<span class="hljs-string">"Johnny"</span>)</span><br><span class="line">  },[text])</span><br></pre></td></tr></tbody></table></figure>
+<p>Last but not least we can also fire some function based on the component unmounting too. By default if your useEffect function returns a function it will invoke it when the component is unmounted.</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =></span> {</span><br><span class="line">    <span class="hljs-comment">// Similar to componentDidUpdate, we are watching for changes to the text variable</span></span><br><span class="line">    setText(<span class="hljs-string">"Johnny"</span>)</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cleanup</span>(<span class="hljs-params"></span>) </span>{</span><br><span class="line">      <span class="hljs-comment">// Do some cleanup logic here!</span></span><br><span class="line">    };</span><br><span class="line">  },[text])</span><br></pre></td></tr></tbody></table></figure>
+<p>What if we’re using some global state i hear you ask? Enter React’s <a href="https://reactjs.org/docs/context.html" target="_blank" rel="noopener">Context API</a>….but wait because we’re using functional components we need to use a hook instead…<strong>useContext</strong> hook to be exact.</p>
+<h2 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a><a href="https://reactjs.org/docs/hooks-reference.html#usecontext" target="_blank" rel="noopener">useContext</a></h2><p>By far for me this hook is one of the best. I wouldn’t say I’ve had any issues with React but for a long time there was no way to manage global app state without using a third party package such as <a href="https://react-redux.js.org/" target="_blank" rel="noopener">React Redux</a> or <a href="https://github.com/solkimicreb/react-easy-state" target="_blank" rel="noopener">React Easy State</a>. Passing props around to other components can be ok when it’s two or three, but when you’re passing down props through maybe 5 different components just to tell a button the app is in a loading state it becomes a bit much!</p>
+<p><a href="https://codesandbox.io/embed/adoring-snow-bc44k" target="_blank" rel="noopener">View Demo Code</a></p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">"react-dom"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"./styles.css"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{</span><br><span class="line">  state = {</span><br><span class="line">    loading: <span class="hljs-literal">true</span></span><br><span class="line">  };</span><br><span class="line">  render() {</span><br><span class="line">    <span class="hljs-keyword">return</span> (</span><br><span class="line">      <div classname="<span" class="string">"App"</div></span>><br><span class="line">        <form loading="{<span" class="keyword">this</form></span>.state.loading} /><br><span class="line">      <<span class="hljs-regexp">/div></span></span><br><span class="line"><span class="hljs-regexp">    );</span></span><br><span class="line"><span class="hljs-regexp">  }</span></span><br><span class="line"><span class="hljs-regexp">}</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">const Form = ({ loading }) => {</span></span><br><span class="line"><span class="hljs-regexp">  return (</span></span><br><span class="line"><span class="hljs-regexp">    <form></form></span></span><br><span class="line"><span class="hljs-regexp">      <h2>Fill Me Inh2></h2></span><br><span class="hljs-line">      <input type="<span" class="string">"text"</span> /></span><br><span class="line">      <p></p></span><br><span class="line">        <button loading="{loading}"></button></span><br><span class="line">      <<span class="hljs-regexp">/p></span></span><br><span class="line"><span class="hljs-regexp">    form></span><br><span class="hljs-line">  );</span><br><span class="hljs-line">};</span><br><span class="hljs-line"></span><br><span class="hljs-line"><span class="hljs-keyword">const</span> Button = <span class="hljs-function">(<span class="hljs-params">{ loading }</span>) =></span> {</span><br><span class="hljs-line">  <span class="hljs-keyword">if</span> (loading) <span class="hljs-keyword">return</span> <span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">p</span>></span>No Button Form is Loading<span class="hljs-tag">p</span>></span></span>;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>></span>Submit<span class="hljs-tag">button</span>></span></span>;<br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> rootElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>);</span><br><span class="line">ReactDOM.render(<span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">App</span> /></span>, rootElement);</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Do not fret my friends, <strong>useContext</strong> gives us access to extend our functional components. The below example illustrates how we can create some context & subscribe to it within our functional components using Reacts useContext hook.</p>
+<p><a href="https://codesandbox.io/embed/competent-noyce-92gz2" target="_blank" rel="noopener">View Code Demo</a></p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">"react-dom"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"./styles.css"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> AppContext = React.createContext({ <span class="hljs-attr">loading</span>: <span class="hljs-string">""</span> });</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{</span><br><span class="line">  state = {</span><br><span class="line">    loading: <span class="hljs-literal">true</span></span><br><span class="line">  };</span><br><span class="line">  render() {</span><br><span class="line">    <span class="hljs-keyword">return</span> (</span><br><span class="line">      <appcontext.provider value="{{" ...this.state }}></appcontext.provider></span><br><span class="line">        <div classname="<span" class="string">"App"</div></span>><br><span class="line">          <form loading="{<span" class="keyword">this</form></span>.state.loading} /><br><span class="line">        <<span class="hljs-regexp">/div></span></span><br><span class="line"><span class="hljs-regexp">      AppContext.Provider></span><br><span class="hljs-line">    );</span><br><span class="hljs-line">  }</span><br><span class="hljs-line">}</span><br><span class="hljs-line"></span><br><span class="hljs-line"><span class="hljs-keyword">const</span> Form = <span class="hljs-function"><span class="hljs-params">()</span> =></span> {</span><br><span class="hljs-line">  <span class="hljs-keyword">return</span> (</span><br><span class="hljs-line">    <form></form></span><br><span class="hljs-line">      <h2>Fill Me In<<span class="hljs-regexp">/h2></span></h2></span><br><span class="hljs-line"><span class="hljs-regexp">      <input type="text" < span>></span><br><span class="hljs-line">      <p></p></span><br><span class="hljs-line">        <button></button></span><br><span class="hljs-line">      <<span class="hljs-regexp">/p></span></span><br><span class="hljs-line"><span class="hljs-regexp">    form></span><br><span class="hljs-line">  );</span><br><span class="hljs-line">};</span><br><span class="hljs-line"></span><br><span class="hljs-line"><span class="hljs-keyword">const</span> Button = <span class="hljs-function">(<span class="hljs-params">{ loading }</span>) =></span> {</span><br><span class="hljs-line">  <span class="hljs-keyword">const</span> context = React.useContext(AppContext);</span><br><span class="hljs-line">  <span class="hljs-keyword">if</span> (context.loading) <span class="hljs-keyword">return</span> <span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">p</span>></span>No Button Form is Loading<span class="hljs-tag">p</span>></span></span>;</span><br><span class="hljs-line">  <span class="hljs-keyword">return</span> <span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>></span>Submit<span class="hljs-tag">button</span>></span></span>;</span><br><span class="hljs-line">};</span><br><span class="hljs-line"></span><br><span class="hljs-line"><span class="hljs-keyword">const</span> rootElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>);</span><br><span class="hljs-line">ReactDOM.render(<span class="hljs-xml"><span class="hljs-tag"><<span class="hljs-name">App</span> /></span>, rootElement);</span></span><br></span></pre></td></tr></tbody></table></figure>
+<p>Of course you could use another state management package but I like this approach as we’re relying on one package without any third party setup, no messing around with <em>mapStateToProps</em> for me anymore. Why mess with extra libraries when React provides a tool for exactly what we’re trying to solve.</p>
+<p>Side note: The size of your state will most likely determine the kind of management system you want to adopt.</p>
+<p>Last but not least React gives us the option to extend this architecture with the <strong>useHook</strong> function. This is prime time for a custom hook you might have in mind. I would provide another demo but my face is tired, have a read of <a href="https://reactjs.org/docs/hooks-custom.html" target="_blank" rel="noopener">this</a> if you’re interested.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>First off, React as a whole is amazing & I’m so glad I have the opportunity to develop with it every day…and get paid! Hooks are an amazing feature the React team have provided us with but understanding the core concepts of the React ecosystem & architecture in my opinion boils down to a strong grasp of stateful vs functional components.</p>
+<p>If you can write an app using only class based stateful components go right ahead, stateful container components aren’t leaving us anytime soon. Class components are a staple in React as far as understanding goes that’s for sure. Hooks just give it a little extension for those pure functions that don’t require a full state render method to be defined.</p>
+<p>Need some scoped state, <strong>useState</strong>…need some lifecycle management / side-effects to happen <strong>useEffect</strong>…want to clean up your global context state <strong>useContext</strong>…have an idea for a reusable hook…<strong>build your own</strong>!</p>
+<p>There are a couple of advanced uses regarding <a href="https://reactjs.org/docs/hooks-reference.html#usecontext" target="_blank" rel="noopener">useContext</a> coupled with <a href="https://reactjs.org/docs/hooks-reference.html#usereducer" target="_blank" rel="noopener">useReducer</a> & some <a href="https://reactjs.org/docs/higher-order-components.html" target="_blank" rel="noopener">Higher Order Components</a> (HOC) to completely over all your state management which you can have a read of <a href="https://medium.com/@seantheurgel/react-hooks-as-state-management-usecontext-useeffect-usereducer-a75472a862fe" target="_blank" rel="noopener">here</a>.</p>
+<p>Also I’d like to point out there are a couple more hooks I haven’t mention in this article for example <strong>useMemo</strong>, <strong>useRef</strong> & a couple others.</p>
+<p>Love hooks or React? Read more <a href="https://reactjs.org/docs/hooks-reference.html" target="_blank" rel="noopener">React Hooks</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -214,79 +208,192 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2019/12/11/Functional-Programming-in-JS/" itemprop="url">Functional Programming in JS</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2019-12-11T18:10:34.000Z" itemprop="datePublished">Dec 11 2019</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            12 minutes read (About 1787 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><img src="/images/what-is-functional-propgramming/fp.jpg" alt></p>
-<h1 id="What-is-Functional-Programming"><a href="#What-is-Functional-Programming" class="headerlink" title="What is Functional Programming?"></a>What is Functional Programming?</h1><p>You may have heard this magical phrase <strong><a href="https://en.wikipedia.org/wiki/Functional_programming" target="_blank" rel="noopener">Functional Programming</a></strong> (FP) flying around  recently. Some people are touting it as the new or best approach for any project.</p>
-<p>The truth is FP has being around since the 1930’s specifically using <a href="https://en.wikipedia.org/wiki/Lisp_(programming_language" target="_blank" rel="noopener">LISP</a>) originally specified in 1958.</p>
-<p>FP came from mathematics & is originally based on functional abstraction with <a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank" rel="noopener">Lambda Calculus</a>.</p>
-<p>Some of the most popular FP languages at the moment are <strong>Haskell</strong>, <strong>Scala</strong> & <strong>Clojure</strong>.</p>
-<p>Luckily for us <strong>JavaScript</strong> supports all of the awesome conceptions we’re going to cover in this article.</p>
-<h1 id="Core-Principles"><a href="#Core-Principles" class="headerlink" title="Core Principles"></a>Core Principles</h1><p>Stick to these guys & you’ll be fine:</p>
-<blockquote>
-<p><strong>A perfect function should</strong>…</p>
-</blockquote>
-<ul>
-<li>have only <strong>one task</strong></li>
-<li>be <strong>predictable</strong> and <strong>easy to understand</strong></li>
-<li>not rely on any external <strong>shared state</strong></li>
-<li>be <strong>composable</strong></li>
-<li>not directly <strong>mutate</strong> state, it should be <strong>immutable</strong></li>
-<li>return the <strong>same</strong> amount of arguments from <strong>input</strong> to <strong>output</strong></li>
-<li>cause <strong>no side-effects</strong></li>
-</ul>
-<p>The idea behind FP is much the same as <strong>Object Oriented Programming</strong> (OOP):</p>
-<ul>
-<li><strong>Don’t repeat yourself</strong> (<a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="noopener">DRY</a>)</li>
-<li><strong>Memory efficient</strong></li>
-<li><strong>Easy to extend</strong></li>
-<li><strong>Easy to maintain</strong></li>
-<li><strong>Understandable</strong></li>
-</ul>
-<p>With these principles we can take advantage of <strong>Functional Programming</strong> to create a <strong>separation of concerns</strong> when writing our functions.</p>
-<p>With <strong>no classes definitions</strong> and a reliance on <strong>data</strong> & the <strong>functions</strong> that manipulate this data to be separate, we can <strong>reduce the number of potential bugs</strong> that might pop up and <strong>increase</strong> the overall <strong>speed</strong> of our application.</p>
-<p>FP mostly relies on <strong>well structured</strong> data <strong>types</strong> such as <strong>Arrays</strong>, <strong>Objects</strong>, <strong>Dictionaries</strong> & <strong>Lists</strong>.</p>
-<p>A little note before we continue, as we know <strong>functions</strong> in JS <strong>are</strong> considered <strong>first class citizens</strong>. Meaning they can be:</p>
-<h3 id="assigned-to-a-variable-heavy-check-mark"><a href="#assigned-to-a-variable-heavy-check-mark" class="headerlink" title="assigned to a variable :heavy_check_mark:"></a><strong>assigned to a variable</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span></h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> func = <span class="hljs-function"><span class="hljs-params">()</span> =></span> <span class="hljs-string">'BOOM'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(func())</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="passed-as-arguments-into-other-functions-heavy-check-mark"><a href="#passed-as-arguments-into-other-functions-heavy-check-mark" class="headerlink" title="passed as arguments into other functions :heavy_check_mark:"></a><strong>passed as arguments into other functions</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span></h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> speak = <span class="hljs-function">(<span class="hljs-params">str</span>) =></span> <span class="hljs-built_in">console</span>.log(str)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doStuff</span>(<span class="hljs-params">fn</span>)</span>{</span><br><span class="line">    fn(<span class="hljs-string">'Hello'</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">doStuff(speak)</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="returned-by-functions-heavy-check-mark"><a href="#returned-by-functions-heavy-check-mark" class="headerlink" title="returned by functions :heavy_check_mark:"></a><strong>returned by functions</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span></h3><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> giveMeAFn = <span class="hljs-function"><span class="hljs-params">()</span> =></span> {</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">msg</span>) =></span> <span class="hljs-built_in">console</span>.log(msg)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> fn = giveMeAFn()</span><br><span class="line"></span><br><span class="line">fn(<span class="hljs-string">'JS is super sweet!'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="Pure-Functions"><a href="#Pure-Functions" class="headerlink" title="Pure Functions"></a>Pure Functions</h1><blockquote>
-<p><strong>A Pure Function</strong>…</p>
-</blockquote>
-<ul>
-<li>is not <strong>influenced</strong> <strong>by</strong> anything other than the <strong>input parameters</strong> it receives. Passing in the <strong>same</strong> <strong>parameters</strong> will always <strong>result</strong> in the <strong>same output</strong>.</li>
-<li>does <strong>not</strong> cause any <strong>side-effects</strong> (doesn’t change any external or global scope variables)</li>
-<li><strong>never changes</strong> any of the <strong>parameters</strong> it is passed in, this data should be considered <strong>immutable</strong>. We can however copy / <strong>clone</strong> any input parameters <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></li>
-<li>should be <a href="https://en.wikipedia.org/wiki/Referential_transparency" target="_blank" rel="noopener">referentially transparent</a>….click the link for a better definition than I could muster <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></li>
-<li>should only rely on it’s <strong>local variable scope</strong></li>
-</ul>
-<p>Following these steps will make our functions easy to test & highly composable. Here is an example of a impure & pure function:</p>
-<h3 id="impure-flushed"><a href="#impure-flushed" class="headerlink" title="impure :flushed:"></a><strong>impure</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f633.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f633.png?v8">😳</span></h3><p>In this example we’re mutating a globally scoped variable by pushing a string into the array <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">😭</span></p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> names = []</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addName</span>(<span class="hljs-params">n</span>)</span>{</span><br><span class="line">    names.push(n)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">addName(<span class="hljs-string">'John'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="pure-innocent"><a href="#pure-innocent" class="headerlink" title="pure :innocent:"></a><strong>pure</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f607.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f607.png?v8">😇</span></h3><p>In this example we’re taking in an array & string then returning a brand new array <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span></p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> names = []</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addName</span>(<span class="hljs-params">names, name</span>)</span>{</span><br><span class="line">    <span class="hljs-keyword">return</span> [</span><br><span class="line">        ...names,</span><br><span class="line">        name</span><br><span class="line">    ]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> newNames = addName(names, <span class="hljs-string">'Donny'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="Can-everything-be-Pure"><a href="#Can-everything-be-Pure" class="headerlink" title="Can everything be Pure?"></a>Can everything be Pure?</h1><p>Technically retrieving an input & producing an output is in itself a side-effect. It’s practically <strong>impossible</strong> to produce a program without some side-effects existing in some way. <strong>Side-effects & impurity aren’t bad</strong>, but reducing the amount that occur will make our program easier to understand & more reusable.</p>
-<p>The goal is to <strong>reduce the amount of side-effects</strong> required to make our program run smoothly.</p>
-<h1 id="Idempotence"><a href="#Idempotence" class="headerlink" title="Idempotence"></a>Idempotence</h1><p>What the hell is this craziness??? <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f628.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f628.png?v8">😨</span></p>
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 Shane O&#39;Moore&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/shaneiadt">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>ges/icons/emoji/unicode/1f628.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f628.png?v8">😨</span></p>
 <p>In simple terms idempotence means when we run the same function with the same parameters multiple times the result will always be the same.</p>
 <p>Your functions should not communicate with the outside world & always does what we expect it to do. This makes our code more predictable & becomes a highly useful strategy within distributed & parallel systems.</p>
 <h3 id="BAD-TIME-poop"><a href="#BAD-TIME-poop" class="headerlink" title="BAD TIME :poop:"></a><strong>BAD TIME</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8">💩</span></h3><p>This will result in a <strong>different</strong> result every single time!</p>
