@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: webpack - Ram.blings</title>
+<title>Tag: Webpack - Ram.blings</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -22,7 +22,7 @@
 <meta name="keywords" content="Web Development, JavaScript, CSS,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ram.blings">
-<meta property="og:url" content="https://shaneiadt.github.io/tags/webpack/index.html">
+<meta property="og:url" content="https://shaneiadt.github.io/tags/Webpack/index.html">
 <meta property="og:site_name" content="Ram.blings">
 <meta property="og:description" content="A collection of tech related ramblings from a man with a computer.">
 <meta property="og:locale" content="en">
@@ -115,7 +115,7 @@
     <section class="section section-heading">
     <div class="container">
         <div class="content">
-            <h5>#webpack</h5>
+            <h5>#Webpack</h5>
         </div>
     </div>
 </section>
@@ -125,77 +125,52 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2019/08/19/Webpack-4-Beginners-Dev-IT-Faster/" itemprop="url">Webpack 4 Beginners Dev IT Faster</a>
+            <a href="/2019/07/29/Webpack-4-Beginners/" itemprop="url">Webpack 4 Beginners</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2019-08-19T14:54:28.000Z" itemprop="datePublished">Aug 19 2019</time>
+            <time datetime="2019-07-29T17:56:02.000Z" itemprop="datePublished">Jul 29 2019</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            5 minutes read (About 817 words)
+            4 minutes read (About 589 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>Welcome to <strong>Part 3</strong> of our journey into understanding <strong>Webpack</strong> just a wee bit better together! If you haven’t read any of the previous articles I’d suggest having a goo.</p>
-<ul>
-<li>Part 1: <a href="https://shaneiadt.github.io/2019/07/29/Webpack-4-Beginners/">Zero Config</a></li>
-<li>Part 2: <a href="https://shaneiadt.github.io/2019/07/31/Webpack-4-Beginners-Configuration/">A Little Config Goes A long Way</a></li>
-</ul>
-<p>In this instalment we shall be attempting to <strong>speed up our development process</strong> by configuring our project with <a href="https://webpack.js.org/configuration/dev-server/" target="_blank" rel="noopener">Webpack Dev Server</a>.</p>
-<p>Dev server comes with some cool out of the box configuration such as <strong>automatic live page reloading</strong> so every time we make a change to a file our server will re-compile & serve. Some other optionals are enabling <strong>source-maps</strong> for debugging.</p>
-<p>We left off from here last time: <a href="https://github.com/shaneiadt/webpack-4-beginners/tree/master/a-little-config" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners/tree/master/a-little-config</a></p>
-<h2 id="Installing-Webpack-Dev-Server"><a href="#Installing-Webpack-Dev-Server" class="headerlink" title="Installing Webpack-Dev-Server"></a>Installing Webpack-Dev-Server</h2><p>Ok let’s get to it, first install <code>webpack-dev-server</code>.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D webpack-dev-server</span><br></pre></td></tr></tbody></table></figure>
-<p>Update our npm scripts to run our dev server locally.</p>
-<p><em>Note we are still pointing to our development config webpack setup.</em></p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">    "start": "webpack-dev-server --config webpack.config.js --open",</span><br><span class="line">    "prod": "webpack --config webpack.prod.js"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
-<p>We also need to update over dev configuration settings to tell Webpack Dev Server a few important things like <strong>what directory to server locally</strong>!</p>
-<p>We’ll also enable <a href="https://blog.teamtreehouse.com/introduction-source-maps" target="_blank" rel="noopener"><strong>source-maps</strong></a> out of the box too <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p>
-<p>Update <code>webpack.config.js</code> to the below.</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> webpackCommon = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./webpack.common'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = {</span><br><span class="line">    ...webpackCommon[<span class="hljs-string">'options'</span>],</span><br><span class="line">    mode: <span class="hljs-string">'development'</span>,</span><br><span class="line">    devtool: <span class="hljs-string">'inline-source-map'</span>,</span><br><span class="line">    devServer: {</span><br><span class="line">        contentBase: <span class="hljs-string">'./dist'</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>From here yes we can run out <code>npm start</code> script to launch our dev server which will server our <strong>./dist</strong> directory like so.</p>
-<p><img src="/images/webpack-4-beginners/dev-server-console-3.jpg" alt></p>
-<p>For example sake & ease let’s create an <strong>index.html </strong>file so our bundle.js can load into for dev purposes. The simplest way to do this is to use a plugin called <code>html-webpack-plugin</code></p>
-<p>Bah! What are these <a href="https://webpack.js.org/configuration/plugins/" target="_blank" rel="noopener"><strong>plugins</strong></a> you speak of, <em>begone demon</em>!</p>
-<p>Not to fret as you may have guessed by now <em>Webpack</em> can be configured quite extensively, (quote straight from the docs) <em>plugins are the backbone of Webpack</em>!</p>
-<p>Let’s not dive to deep into plugins just quite yet.</p>
-<h2 id="Installing-Our-First-Plugin"><a href="#Installing-Our-First-Plugin" class="headerlink" title="Installing Our First Plugin"></a>Installing Our First Plugin</h2><p>We’re just telling our bundler to create a default html document to inject our bundle JavaScript file into…that’s it…simple, now let’s move on. More on <strong>plugins</strong> at a later stage.</p>
-<ol>
-<li>Install the plugin.</li>
-</ol>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D html-webpack-plugin</span><br></pre></td></tr></tbody></table></figure>
-<ol start="2">
-<li>Add it into our <code>webpack.common.js</code> file as we want it to create a new html file for both our <code>development</code> & <code>production</code> builds / bundles.</li>
-</ol>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> HtmlWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> options = {</span><br><span class="line">    entry: {</span><br><span class="line">        home: <span class="hljs-string">'./src/index.js'</span>,</span><br><span class="line">        misc: <span class="hljs-string">'./src/a-different-entry-file.js'</span></span><br><span class="line">    },</span><br><span class="line">    plugins: [<span class="hljs-keyword">new</span> HtmlWebpackPlugin()]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = {</span><br><span class="line">    options</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>And that’s it….now run <code>npm start</code> test. A new browser window should open up on your <strong>localhost</strong> displaying a blank page.</p>
-<p><strong>Open your dev tools</strong> & you should see some console logs appear!</p>
-<p><img src="/images/webpack-4-beginners/dev-server-console.jpg" alt></p>
-<h2 id="Testing-Live-Reloading"><a href="#Testing-Live-Reloading" class="headerlink" title="Testing Live Reloading"></a>Testing Live Reloading</h2><p>Brilliant stuff now let’s update something in one of our files to see if our dev server is <strong>reloading</strong> when one of our files update.</p>
-<p>Update <code>./src/message.js</code> to:</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-string">"Webpack is even awesomer with Webpack Dev Server!!!"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>Now save & you should see in your <strong>terminal window</strong> our <strong>dev server re-compile</strong> all our assets & <em>automagically</em> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2747.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2747.png?v8">❇</span> update everything being served locally.</p>
-<p><img src="/images/webpack-4-beginners/dev-server-console-2.jpg" alt></p>
-<h2 id="Further-Configuration"><a href="#Further-Configuration" class="headerlink" title="Further Configuration"></a>Further Configuration</h2><p>We can configure our dev server a number of different ways. Here’s a couple examples:</p>
-<ul>
-<li><a href="https://webpack.js.org/configuration/dev-server/#devserveropenpage" target="_blank" rel="noopener">openPage</a>: which page to navigate to first when your browser pops open.</li>
-<li><a href="https://webpack.js.org/configuration/dev-server/#devserverpublicpath-" target="_blank" rel="noopener">publicPath</a>: where our static files will be served & can be accessed from.</li>
-<li><a href="https://webpack.js.org/configuration/dev-server/#devserverhttps" target="_blank" rel="noopener">https</a>: we can enable https support.</li>
-<li><a href="https://webpack.js.org/configuration/dev-server/#devserverheaders-" target="_blank" rel="noopener">headers</a>: add additional headers to all responses.</li>
-</ul>
-<p>These are only a few options, for more <a href="https://webpack.js.org/configuration/dev-server/" target="_blank" rel="noopener">read the docs</a>, at the moment let’s just set our <strong>output folder</strong> & <strong>port number</strong>.</p>
-<p>Update <code>webpack.config.js</code>.</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> webpackCommon = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./webpack.common'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = {</span><br><span class="line">    ...webpackCommon[<span class="hljs-string">'options'</span>],</span><br><span class="line">    mode: <span class="hljs-string">'development'</span>,</span><br><span class="line">    devtool: <span class="hljs-string">'inline-source-map'</span>,</span><br><span class="line">    devServer: {</span><br><span class="line">        contentBase: __dirname + <span class="hljs-string">'/dist'</span>,</span><br><span class="line">        port: <span class="hljs-number">9000</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>In this short article we’ve managed to speed up our development process considerably by utilising <code>webpacks-dev-server</code>. We also configured some common settings & installed our very first plugin! <em>Woop Woop</em> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8">👏</span></p>
-<p>We’ll dive more into webpack plugins next time to see how powerful and flexible they can make our build process.</p>
-<p><strong>Github Repo</strong>: <a href="https://github.com/shaneiadt/webpack-4-beginners/tree/master/dev-it-faster" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners/tree/master/dev-it-faster</a></p>
+        <p>In this article we will run over the basic setup for <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack 4</a>. Why Webpack & not some other bundler like <a href="https://parceljs.org/" target="_blank" rel="noopener">Parcel</a> or <a href="https://rollupjs.org/guide/en/" target="_blank" rel="noopener">RollUp</a>? I know Webpack so I figured that would be a good start, lets keep it simple shall we!</p>
+<p><img src="https://i.imgflip.com/1tlvet.jpg" alt></p>
+<p>Bundlers in general can make your dev life a lot easier & far more productive, but some can absorb you into config hell! For example here’s a zero configuration Webpack project minus the hair plugging.</p>
+<p>Let’s create our project & setup npm as our package manager of choice. The -y flag tells npm to use the default package.json configuration, I don’t care for questions thank you very much.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir webpack-4-begginners</span><br><span class="line">cd webpack-4-beginners</span><br><span class="line">npm init -y</span><br></pre></td></tr></tbody></table></figure>
+<p>Oh yeah we need to install Webpack 4 & Webpack CLI as our development dependencies (the -D flag is shorthand for –save-dev) & also if you don’t already have it <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node</a>(I’m currently using v10.15.3).</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack webpack-cli -D</span><br></pre></td></tr></tbody></table></figure>
+<p>Now we can create our main index.js file which will be the entry point for our application…or at least that’s what we’ll tell our bundler. By default with zero config Webpack will look for our entry file in the src folder of the current directory. So let us oblige. Otherwise you’ll get an error & have to create it anyway, suit yourself really.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir src</span><br><span class="line">cd src</span><br><span class="line"></span><br><span class="line">echo >> index.js (Windows)</span><br><span class="line"></span><br><span class="line">touch index.js (Mac)</span><br></pre></td></tr></tbody></table></figure>
+<p>Let’s throw something into our index file.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log('Webpack 4 Beginners')</span><br></pre></td></tr></tbody></table></figure>
+<p>All we need to do now is tell Webpack to do it’s magic on the stuff using the scripts section of our package.json file.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  "name": "webpack-4-beginners",</span><br><span class="line">  "version": "1.0.0",</span><br><span class="line">  "description": "",</span><br><span class="line">  "main": "./src/index.js",</span><br><span class="line">  "scripts": {</span><br><span class="line">    "build": "webpack"</span><br><span class="line">  },</span><br><span class="line">  "keywords": [],</span><br><span class="line">  "author": "",</span><br><span class="line">  "license": "ISC",</span><br><span class="line">  "devDependencies": {</span><br><span class="line">    "webpack": "^4.38.0",</span><br><span class="line">    "webpack-cli": "^3.3.6"</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>Let the bundling commence!!! Alternatively you could run <code>webpack</code> straight from the command-line.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></tbody></table></figure>
+<p>Will you look at that we did it! A lovely <strong>dist</strong> folder containing a <strong>main.js</strong> file with some crazy looking JavaScript inside.</p>
+<p>This is our bundled js believe it our not. To demonstrate copy the code from your main.js file open your console window in Chrome (or whatever browser you’re using) & run it.</p>
+<p><img src="/images/webpack-4-beginners/first-bundle.jpg" alt></p>
+<p>We now have a simple module bundler setup, what now? Let’s test our bundler to make sure it’s actually working.</p>
+<p>Create a new file in your src directory called message.js with the below js.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default "Webpack is Awesome!"</span><br></pre></td></tr></tbody></table></figure>
+<p>Update your index.js file to the below</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import message from './message'</span><br><span class="line"></span><br><span class="line">console.log(message)</span><br></pre></td></tr></tbody></table></figure>
+<p>Now run our bundler again <code>npm run build</code> and boom our main.js file has been updated once more. Let’s inspect the output as we’re only using console.log through the command-line. Run <code>node dist/main.js</code> from your project directory & you should see something <strong>Awesome</strong> appear. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8">✨</span></p>
+<p>Our bundler is looking pretty good now, these are just the basics of course. If you fancy diving into some more details around configuring your bundler why not check out the <a href="https://webpack.js.org/concepts/" target="_blank" rel="noopener">docs</a>.</p>
+<p>In the next article I will be covering <strong>Webpack Dev Server</strong> to improve our development workflow, along with <strong>Entry</strong> & <strong>Output</strong> configuration our your bundler.</p>
+<p><strong>Github Repo</strong>: <a href="https://github.com/shaneiadt/webpack-4-beginners" target="_blank" rel="noopener">https://github.com/shaneiadt/webpack-4-beginners</a></p>
+<p>Exciting times I know woop woop! Go forth and bundle my friends <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png?v8">👋</span></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -225,22 +200,192 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2019/07/31/Webpack-4-Beginners-Configuration/" itemprop="url">Webpack-4-Beginners-Configuration</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2019-07-31T18:09:58.000Z" itemprop="datePublished">Jul 31 2019</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
+    
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 Shane O&#39;Moore&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/shaneiadt">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
             
             
-            5 minutes read (About 800 words)
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>0 words)
         </span>
         
     </div>
