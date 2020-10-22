@@ -120,67 +120,337 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2020/05/09/Multiple-Selection-Group-Dragging-InteractJs-Svelte/" itemprop="url">Multiple Selection &amp; Group Dragging - InteractJs &amp; Svelte</a>
+            <a href="/2020/09/05/SQL-101-The-Refresher/" itemprop="url">SQL 101 the Refresher</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2020-05-09T08:21:57.000Z" itemprop="datePublished">May 9 2020</time>
+            <time datetime="2020-09-05T06:56:02.000Z" itemprop="datePublished">Sep 5 2020</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            7 minutes read (About 1023 words)
+            6 minutes read (About 895 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>If you’ve ever touched the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API" target="_blank" rel="noopener">HTML Drap and Drop API</a> you’ll know it can be a bit overwhelming somethings.</p>
-<p>To minimise the amount of fiddling we’re going to use an open source library called <a href="https://interactjs.io/" target="_blank" rel="noopener">interact.js</a>. Check it out, they have some great demo’s & documentation.</p>
-<p>Also we will be building our little app with <a href="https://svelte.dev/" target="_blank" rel="noopener">Svelte</a>, if you haven’t heard of it I’d highly advise you go have a look….like right now it’s awesome!</p>
-<h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><ul>
-<li>CodeSandbox: <a href="https://codesandbox.io/s/github/shaneiadt/interactjs-and-svelte" target="_blank" rel="noopener">https://codesandbox.io/s/github/shaneiadt/interactjs-and-svelte</a></li>
-<li>Github: <a href="https://github.com/shaneiadt/interactjs-and-svelte" target="_blank" rel="noopener">https://github.com/shaneiadt/interactjs-and-svelte</a></li>
-</ul>
-<h1 id="Setting-Things-Up"><a href="#Setting-Things-Up" class="headerlink" title="Setting Things Up"></a>Setting Things Up</h1><p>Create a new CodeSandbox or bootstrap a new Svelte project somewhere.</p>
-<p>Use npm or yarn to install a new dev dependency called <strong>interactjs</strong>.</p>
-<p>That’s it pretty simple I like it :)</p>
-<h1 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML & CSS"></a>HTML & CSS</h1><p>HTML</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 1<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 2<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 3<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 4<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line"><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br></pre></td></tr></tbody></table></figure>
-<p>CSS</p>
-<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-id">#container</span> {</span><br><span class="line">  <span class="hljs-attribute">background</span>: lightgray;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100vh</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.item</span> {</span><br><span class="line">  <span class="hljs-attribute">display</span>: flex;</span><br><span class="line">  <span class="hljs-attribute">justify-content</span>: center;</span><br><span class="line">  <span class="hljs-attribute">align-items</span>: center;</span><br><span class="line">  <span class="hljs-attribute">position</span>: absolute;</span><br><span class="line">  <span class="hljs-attribute">background</span>: lightblue;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1em</span>;</span><br><span class="line">  <span class="hljs-attribute">touch-action</span>: none;</span><br><span class="line">  <span class="hljs-attribute">transition</span>: box-shadow <span class="hljs-number">0.5s</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.item</span><span class="hljs-selector-pseudo">:hover</span> {</span><br><span class="line">  <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">10px</span> <span class="hljs-number">15px</span> <span class="hljs-number">0px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.1);</span><br><span class="line">  <span class="hljs-attribute">-moz-box-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">10px</span> <span class="hljs-number">15px</span> <span class="hljs-number">0px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.1);</span><br><span class="line">  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">10px</span> <span class="hljs-number">15px</span> <span class="hljs-number">0px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.1);</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.item</span><span class="hljs-selector-pseudo">:nth-child(1)</span> {</span><br><span class="line">  <span class="hljs-attribute">top</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">left</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.item</span><span class="hljs-selector-pseudo">:nth-child(2)</span> {</span><br><span class="line">  <span class="hljs-attribute">top</span>: <span class="hljs-number">30px</span>;</span><br><span class="line">  <span class="hljs-attribute">left</span>: <span class="hljs-number">300px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.item</span><span class="hljs-selector-pseudo">:nth-child(3)</span> {</span><br><span class="line">  <span class="hljs-attribute">top</span>: <span class="hljs-number">400px</span>;</span><br><span class="line">  <span class="hljs-attribute">left</span>: <span class="hljs-number">320px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="hljs-selector-class">.item</span><span class="hljs-selector-pseudo">:nth-child(4)</span> {</span><br><span class="line">  <span class="hljs-attribute">top</span>: <span class="hljs-number">250px</span>;</span><br><span class="line">  <span class="hljs-attribute">left</span>: <span class="hljs-number">200px</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>You should end up with something that looks like this.</p>
-<p><img src="/images/interactjs-and-svelte/html-and-css.jpg" alt="HTML and CSS"></p>
-<h1 id="Moving-Stuff-Around"><a href="#Moving-Stuff-Around" class="headerlink" title="Moving Stuff Around"></a>Moving Stuff Around</h1><p>I won’t go into too much detail with the interactjs setup & options. Follow along for now & dive into the documentation if you fancy.</p>
-<p>To get our items to become draggable we need to first allow the DOM to render run each element through the interact function exported from the interactjs package with some options applied.</p>
-<p>As we need to wait until the DOM has render we’ll be using sveltes <a href="https://svelte.dev/tutorial/onmount" target="_blank" rel="noopener">onMount</a> lifecycle function.</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> { onMount } <span class="hljs-keyword">from</span> <span class="hljs-string">"svelte"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> interact <span class="hljs-keyword">from</span> <span class="hljs-string">"interactjs"</span>;</span><br><span class="line"></span><br><span class="line">onMount(<span class="hljs-function"><span class="hljs-params">()</span> =></span> {</span><br><span class="line">  <span class="hljs-keyword">const</span> elements = [...document.querySelectorAll(<span class="hljs-string">".item"</span>)];</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">if</span> (elements) {</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> el <span class="hljs-keyword">of</span> elements) {</span><br><span class="line">      interact(el)</span><br><span class="line">        .draggable({</span><br><span class="line">          modifiers: [</span><br><span class="line">            interact.modifiers.snap({</span><br><span class="line">              targets: [</span><br><span class="line">                interact.createSnapGrid({</span><br><span class="line">                  x: <span class="hljs-number">20</span>,</span><br><span class="line">                  y: <span class="hljs-number">20</span></span><br><span class="line">                })</span><br><span class="line">              ],</span><br><span class="line">              range: <span class="hljs-literal">Infinity</span>,</span><br><span class="line">              relativePoints: [</span><br><span class="line">                {</span><br><span class="line">                  x: <span class="hljs-number">0</span>,</span><br><span class="line">                  y: <span class="hljs-number">0</span></span><br><span class="line">                }</span><br><span class="line">              ]</span><br><span class="line">            }),</span><br><span class="line">            interact.modifiers.restrict({</span><br><span class="line">              restriction: el.parentNode,</span><br><span class="line">              elementRect: {</span><br><span class="line">                top: <span class="hljs-number">0</span>,</span><br><span class="line">                left: <span class="hljs-number">0</span>,</span><br><span class="line">                bottom: <span class="hljs-number">1</span>,</span><br><span class="line">                right: <span class="hljs-number">1</span></span><br><span class="line">              },</span><br><span class="line">              endOnly: <span class="hljs-literal">true</span></span><br><span class="line">            })</span><br><span class="line">          ],</span><br><span class="line">          inertia: <span class="hljs-literal">true</span></span><br><span class="line">        })</span><br><span class="line">        .on(<span class="hljs-string">"dragmove"</span>, event => {</span><br><span class="line">          <span class="hljs-keyword">const</span> items = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">"selected"</span>);</span><br><span class="line">          <span class="hljs-keyword">const</span> { dx, dy } = event;</span><br><span class="line"></span><br><span class="line">          <span class="hljs-keyword">const</span> parseDataAxis = <span class="hljs-function"><span class="hljs-params">target</span> =></span> axis =></span><br><span class="line">            <span class="hljs-built_in">parseFloat</span>(target.getAttribute(<span class="hljs-string">`data-<span class="hljs-subst">${axis}</span>`</span>));</span><br><span class="line"></span><br><span class="line">          <span class="hljs-keyword">const</span> translate = <span class="hljs-function"><span class="hljs-params">target</span> =></span> (x, y) => {</span><br><span class="line">            target.style.webkitTransform = <span class="hljs-string">"translate("</span> + x + <span class="hljs-string">"px, "</span> + y + <span class="hljs-string">"px)"</span>;</span><br><span class="line">            target.style.transform = <span class="hljs-string">"translate("</span> + x + <span class="hljs-string">"px, "</span> + y + <span class="hljs-string">"px)"</span>;</span><br><span class="line">          };</span><br><span class="line"></span><br><span class="line">          <span class="hljs-keyword">const</span> updateAttributes = <span class="hljs-function"><span class="hljs-params">target</span> =></span> (x, y) => {</span><br><span class="line">            target.setAttribute(<span class="hljs-string">"data-x"</span>, x);</span><br><span class="line">            target.setAttribute(<span class="hljs-string">"data-y"</span>, y);</span><br><span class="line">          };</span><br><span class="line"></span><br><span class="line">          <span class="hljs-keyword">if</span> (items.length > <span class="hljs-number">0</span>) {</span><br><span class="line">            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> item <span class="hljs-keyword">of</span> items) {</span><br><span class="line">              <span class="hljs-keyword">const</span> x = parseDataAxis(item)(<span class="hljs-string">"x"</span>) + dx;</span><br><span class="line">              <span class="hljs-keyword">const</span> y = parseDataAxis(item)(<span class="hljs-string">"y"</span>) + dy;</span><br><span class="line"></span><br><span class="line">              translate(item)(x, y);</span><br><span class="line">              updateAttributes(item)(x, y);</span><br><span class="line">            }</span><br><span class="line">          } <span class="hljs-keyword">else</span> {</span><br><span class="line">            <span class="hljs-keyword">const</span> { target } = event;</span><br><span class="line">            <span class="hljs-keyword">const</span> x = (parseDataAxis(target)(<span class="hljs-string">"x"</span>) || <span class="hljs-number">0</span>) + dx;</span><br><span class="line">            <span class="hljs-keyword">const</span> y = (parseDataAxis(target)(<span class="hljs-string">"y"</span>) || <span class="hljs-number">0</span>) + dy;</span><br><span class="line"></span><br><span class="line">            translate(target)(x, y);</span><br><span class="line">            updateAttributes(target)(x, y);</span><br><span class="line">          }</span><br><span class="line">        });</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-<p>I hope you’ve just copy & pasted the above, it may look a bit complicated but take some time to read each section and hopefully it’ll make a bit more sense. Another option would be to also not and carrying on <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p>
-<p>One last step is to update our item elements setting their initial x, y position.</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">data-x</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-y</span>=<span class="hljs-string">"0"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 1<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">data-x</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-y</span>=<span class="hljs-string">"0"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 2<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">data-x</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-y</span>=<span class="hljs-string">"0"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 3<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">data-x</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-y</span>=<span class="hljs-string">"0"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 4<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line"><span class="hljs-tag">div</span>></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="Drawing-Our-Marquee-Selection-Tool"><a href="#Drawing-Our-Marquee-Selection-Tool" class="headerlink" title="Drawing Our Marquee Selection Tool"></a>Drawing Our Marquee Selection Tool</h1><p>We need to do a couple of different things here such as:</p>
-<ol>
-<li>Reference the container / canvas</li>
-<li>Reference the marquee selection element we will be drawing</li>
-<li>Track the mouse move position within the div container element</li>
-<li>Fire an event on mouseDown & mouseUp</li>
-<li>Detect when our marquee selection has collided with any div items</li>
-</ol>
-<p>Ok let’s do this…</p>
-<h2 id="Create-our-variables"><a href="#Create-our-variables" class="headerlink" title="Create our variables"></a>Create our variables</h2><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> canvas;</span><br><span class="line"><span class="hljs-keyword">let</span> element;</span><br><span class="line"><span class="hljs-keyword">const</span> mouse = {</span><br><span class="line">  x: <span class="hljs-number">0</span>,</span><br><span class="line">  y: <span class="hljs-number">0</span>,</span><br><span class="line">  startX: <span class="hljs-number">0</span>,</span><br><span class="line">  startY: <span class="hljs-number">0</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Event-handling-functions"><a href="#Event-handling-functions" class="headerlink" title="Event handling functions"></a>Event handling functions</h2><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mouseDown</span>(<span class="hljs-params">e</span>) </span>{</span><br><span class="line">    <span class="hljs-keyword">if</span> (e.target.id === <span class="hljs-string">"container"</span>) {</span><br><span class="line">      <span class="hljs-keyword">const</span> rects = [...canvas.querySelectorAll(<span class="hljs-string">".selection"</span>)];</span><br><span class="line"></span><br><span class="line">      <span class="hljs-keyword">if</span> (rects) {</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> rect <span class="hljs-keyword">of</span> rects) {</span><br><span class="line">          canvas.removeChild(rect);</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      mouse.startX = mouse.x;</span><br><span class="line">      mouse.startY = mouse.y;</span><br><span class="line">      element = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);</span><br><span class="line">      element.className = <span class="hljs-string">"selection"</span>;</span><br><span class="line">      element.style.border = <span class="hljs-string">"1px dashed black"</span>;</span><br><span class="line">      element.style.position = <span class="hljs-string">"absolute"</span>;</span><br><span class="line">      element.style.left = mouse.x + <span class="hljs-string">"px"</span>;</span><br><span class="line">      element.style.top = mouse.y + <span class="hljs-string">"px"</span>;</span><br><span class="line">      canvas.appendChild(element);</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mouseMove</span>(<span class="hljs-params">e</span>) </span>{</span><br><span class="line">    setMousePosition(e);</span><br><span class="line">    <span class="hljs-keyword">if</span> (element) {</span><br><span class="line">      element.style.width = <span class="hljs-built_in">Math</span>.abs(mouse.x - mouse.startX) + <span class="hljs-string">"px"</span>;</span><br><span class="line">      element.style.height = <span class="hljs-built_in">Math</span>.abs(mouse.y - mouse.startY) + <span class="hljs-string">"px"</span>;</span><br><span class="line">      element.style.left =</span><br><span class="line">        mouse.x - mouse.startX < <span class="hljs-number">0</span> ? mouse.x + <span class="hljs-string">"px"</span> : mouse.startX + <span class="hljs-string">"px"</span>;</span><br><span class="line">      element.style.top =</span><br><span class="line">        mouse.y - mouse.startY < <span class="hljs-number">0</span> ? mouse.y + <span class="hljs-string">"px"</span> : mouse.startY + <span class="hljs-string">"px"</span>;</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mouseUp</span>(<span class="hljs-params">e</span>) </span>{</span><br><span class="line">    element = <span class="hljs-literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">const</span> rect = canvas.querySelector(<span class="hljs-string">".selection"</span>);</span><br><span class="line">    <span class="hljs-keyword">const</span> boxes = [...canvas.querySelectorAll(<span class="hljs-string">".item"</span>)];</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (rect) {</span><br><span class="line">      <span class="hljs-keyword">const</span> inBounds = [];</span><br><span class="line"></span><br><span class="line">      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> box <span class="hljs-keyword">of</span> boxes) {</span><br><span class="line">        <span class="hljs-keyword">if</span> (isInBounds(rect, box)) {</span><br><span class="line">          inBounds.push(box);</span><br><span class="line">        } <span class="hljs-keyword">else</span> {</span><br><span class="line">          box.style.boxShadow = <span class="hljs-string">"none"</span>;</span><br><span class="line">          box.classList.remove(<span class="hljs-string">"selected"</span>);</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="hljs-keyword">if</span> (inBounds.length >= <span class="hljs-number">2</span>) {</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> box <span class="hljs-keyword">of</span> inBounds) {</span><br><span class="line">          box.style.boxShadow = <span class="hljs-string">"0 0 3pt 3pt hsl(141, 53%, 53%)"</span>;</span><br><span class="line">          box.classList.add(<span class="hljs-string">"selected"</span>);</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="hljs-keyword">if</span> (rect) canvas.removeChild(canvas.querySelector(<span class="hljs-string">".selection"</span>));</span><br><span class="line">    }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Tracking-mouse-position-amp-element-colliding"><a href="#Tracking-mouse-position-amp-element-colliding" class="headerlink" title="Tracking mouse position & element colliding"></a>Tracking mouse position & element colliding</h2><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setMousePosition</span>(<span class="hljs-params">e</span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">const</span> ev = e || <span class="hljs-built_in">window</span>.event;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">if</span> (ev.pageX) {</span><br><span class="line">    mouse.x = ev.pageX + <span class="hljs-built_in">window</span>.pageXOffset;</span><br><span class="line">    mouse.y = ev.pageY + <span class="hljs-built_in">window</span>.pageYOffset;</span><br><span class="line">  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ev.clientX) {</span><br><span class="line">    mouse.x = ev.clientX + <span class="hljs-built_in">document</span>.body.scrollLeft;</span><br><span class="line">    mouse.y = ev.clientY + <span class="hljs-built_in">document</span>.body.scrollTop;</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isInBounds</span>(<span class="hljs-params">obj1, obj2</span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">const</span> a = obj1.getBoundingClientRect();</span><br><span class="line">  <span class="hljs-keyword">const</span> b = obj2.getBoundingClientRect();</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    a.x < b.x + b.width &&</span><br><span class="line">    a.x + a.width > b.x &&</span><br><span class="line">    a.y < b.y + b.height &&</span><br><span class="line">    a.y + a.height > b.y</span><br><span class="line">  );</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Update-HTML"><a href="#Update-HTML" class="headerlink" title="Update HTML"></a>Update HTML</h2><figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">bind:this</span>=<span class="hljs-string">{canvas}</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span> <span class="hljs-attr">on:mouseup</span>=<span class="hljs-string">{mouseUp}</span> <span class="hljs-attr">on:mousedown</span>=<span class="hljs-string">{mouseDown}</span> <span class="hljs-attr">on:mousemove</span>=<span class="hljs-string">{mouseMove}</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">data-x</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-y</span>=<span class="hljs-string">"0"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 1<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">data-x</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-y</span>=<span class="hljs-string">"0"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 2<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">data-x</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-y</span>=<span class="hljs-string">"0"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 3<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line">  <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">data-x</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-y</span>=<span class="hljs-string">"0"</span>></span><span class="hljs-tag"><<span class="hljs-name">span</span>></span>Item 4<span class="hljs-tag"><<span class="hljs-name">&#47;span</span>></span><span class="hljs-tag"><<span class="hljs-name">&#47;div</span>></span></span><br><span class="line"><span class="hljs-tag">div</span>></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="Phew-sweat-smile"><a href="#Phew-sweat-smile" class="headerlink" title="Phew! :sweat_smile:"></a>Phew! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f605.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png?v8">😅</span></h1><p>That was quite a lot…but at the end of all this we should have a little some some like so…</p>
-<p><img src="/images/interactjs-and-svelte/drag-and-drop.gif" alt="Drag and Drop Final"></p>
-<p>Still interested? Checkout the sandbox or github repo <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f497.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f497.png?v8">💗</span></p>
-<ul>
-<li>CodeSandbox: <a href="https://codesandbox.io/s/github/shaneiadt/interactjs-and-svelte" target="_blank" rel="noopener">https://codesandbox.io/s/github/shaneiadt/interactjs-and-svelte</a></li>
-<li>Github: <a href="https://github.com/shaneiadt/interactjs-and-svelte" target="_blank" rel="noopener">https://github.com/shaneiadt/interactjs-and-svelte</a></li>
-</ul>
+        <p align="center"><br>  <img src="/images/sql-101-the-refresher/sql-what.jpg"><br></p>
+
+<h2 id="But-I’m-a-Frontend-Dev"><a href="#But-I’m-a-Frontend-Dev" class="headerlink" title="But I’m a Frontend Dev"></a>But I’m a Frontend Dev</h2><p>Yes, but without backend servers there would be no front-to-end <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span>. Having some basic knowledge of relational databases and in particular SQL will always come in handy.</p>
+<p>First things first, we need a couple of tables to re-jig that brain matter <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f914.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f914.png?v8">🤔</span></p>
+<h2 id="Gimme-Them-Tables"><a href="#Gimme-Them-Tables" class="headerlink" title="Gimme Them Tables"></a>Gimme Them Tables</h2><p>Let’s use an example of a school, teacher and student database.</p>
+<p>If you fancy following along all you will need is a local installation of <a href="https://dev.mysql.com/downloads/" target="_blank" rel="noopener">MySQL</a> and a SQL editor. I enjoy using <a href="https://www.beekeeperstudio.io/" target="_blank" rel="noopener">Beekeeper Studio</a>, it’s open source and I find it straight forward to use.</p>
+<p><strong>PK</strong> = <strong>Primary Key</strong><br><strong>FK</strong> = <strong>Foreign Key</strong></p>
+<h4 id="Student-Table"><a href="#Student-Table" class="headerlink" title="Student Table"></a><strong>Student Table</strong></h4><table>
+<thead>
+<tr>
+<th>student_id (PK)</th>
+<th>first_name</th>
+<th>last_name</th>
+<th>date_of_birth</th>
+<th>school_id (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John</td>
+<td>Donut</td>
+<td>1997-04-15</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Alison</td>
+<td>Bragg</td>
+<td>1996-02-08</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Morgan</td>
+<td>Lambert</td>
+<td>1994-11-19</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Peter</td>
+<td>Spector</td>
+<td>1998-01-20</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Teacher-Table"><a href="#Teacher-Table" class="headerlink" title="Teacher Table"></a><strong>Teacher Table</strong></h4><table>
+<thead>
+<tr>
+<th>teacher_id (PK)</th>
+<th>first_name</th>
+<th>last_name</th>
+<th>start_date</th>
+<th>school_id (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mary</td>
+<td>Harkin</td>
+<td>1987-01-19</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>John</td>
+<td>Anderson</td>
+<td>1981-08-06</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Paul</td>
+<td>Berger</td>
+<td>1988-09-22</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ann</td>
+<td>Connors</td>
+<td>2000-02-07</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="School-Table"><a href="#School-Table" class="headerlink" title="School Table"></a><strong>School Table</strong></h4><table>
+<thead>
+<tr>
+<th>school_id (PK)</th>
+<th>name</th>
+<th>eircode</th>
+<th>principal_id (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>St. Mildrews</td>
+<td>F903LH</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mount View Highschool</td>
+<td>GH123M</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Athlone College</td>
+<td>4TY21B</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Create-Them-Tables"><a href="#Create-Them-Tables" class="headerlink" title="Create Them Tables"></a>Create Them Tables</h2><p>Let the creation begin <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f608.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f608.png?v8">😈</span></p>
+<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> student (</span><br><span class="line">	student_id <span class="hljs-built_in">INT</span> PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line">  	first_name <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">40</span>),</span><br><span class="line">  	last_name <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">40</span>),</span><br><span class="line">  	date_of_birth <span class="hljs-built_in">DATE</span>,</span><br><span class="line">  	school_id <span class="hljs-built_in">INT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> teacher (</span><br><span class="line">	teacher_id <span class="hljs-built_in">INT</span> PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line">  	first_name <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">40</span>),</span><br><span class="line">  	last_name <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">40</span>),</span><br><span class="line">  	start_date <span class="hljs-built_in">DATE</span>,</span><br><span class="line">  	school_id <span class="hljs-built_in">INT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> school (</span><br><span class="line">	school_id <span class="hljs-built_in">INT</span> PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line">  	<span class="hljs-keyword">name</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">40</span>),</span><br><span class="line">  	eircode <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">40</span>),</span><br><span class="line">  	principal_id <span class="hljs-built_in">INT</span></span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure>
+<p>….one more thing we will need to setup is the table relationships.</p>
+<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> student</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span>(school_id)</span><br><span class="line"><span class="hljs-keyword">REFERENCES</span> school(school_id)</span><br><span class="line"><span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> teacher</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span>(school_id)</span><br><span class="line"><span class="hljs-keyword">REFERENCES</span> school(school_id)</span><br><span class="line"><span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> school</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span>(principal_id)</span><br><span class="line"><span class="hljs-keyword">REFERENCES</span> teacher(teacher_id)</span><br><span class="line"><span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">SET</span> <span class="hljs-literal">NULL</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>The “<strong>ON DELETE</strong>“ key phrase ensures when a row from another table is deleted either to set the value in the referencing table to NULL or completely remove the row from the table.</p>
+<h2 id="Add-Some-Data"><a href="#Add-Some-Data" class="headerlink" title="Add Some Data"></a>Add Some Data</h2><p>Now that we have our tables created let’s add some data so we can run some queries.</p>
+<p>First let’s add the school data, note we have not specfied a <strong>principal_id</strong> because we don’t have any teacher data inserted yet.</p>
+<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Add The Schools</span></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> school(school_id, <span class="hljs-keyword">name</span>, eircode) <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">1</span>, <span class="hljs-string">'St. Mildrews'</span>, <span class="hljs-string">'F903LH'</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> school(school_id, <span class="hljs-keyword">name</span>, eircode) <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">2</span>, <span class="hljs-string">'Mount View Highschool'</span>, <span class="hljs-string">'GH123M'</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> school(school_id, <span class="hljs-keyword">name</span>, eircode) <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">3</span>, <span class="hljs-string">'Athlone College'</span>, <span class="hljs-string">'4TY21B'</span>);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Add The Teachers</span></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> teacher <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">1</span>, <span class="hljs-string">'Mary'</span>, <span class="hljs-string">'Harkin'</span>, <span class="hljs-string">'1987-01-19'</span>, <span class="hljs-number">2</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> teacher <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">2</span>, <span class="hljs-string">'John'</span>, <span class="hljs-string">'Anderson'</span>, <span class="hljs-string">'1981-08-06'</span>, <span class="hljs-number">1</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> teacher <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">3</span>, <span class="hljs-string">'Paul'</span>, <span class="hljs-string">'Berger'</span>, <span class="hljs-string">'1988-09-22'</span>, <span class="hljs-number">1</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> teacher <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">4</span>, <span class="hljs-string">'Ann'</span>, <span class="hljs-string">'Connors'</span>, <span class="hljs-string">'2000-02-07'</span>, <span class="hljs-number">3</span>);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Add The Students</span></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> student <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">1</span>, <span class="hljs-string">'John'</span>, <span class="hljs-string">'Donut'</span>, <span class="hljs-string">'1997-04-15'</span>, <span class="hljs-number">1</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> student <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">2</span>, <span class="hljs-string">'Alison'</span>, <span class="hljs-string">'Bragg'</span>, <span class="hljs-string">'1996-02-08'</span>, <span class="hljs-number">2</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> student <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">3</span>, <span class="hljs-string">'Morgan'</span>, <span class="hljs-string">'Lambert'</span>, <span class="hljs-string">'1994-11-19'</span>, <span class="hljs-number">1</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> student <span class="hljs-keyword">VALUES</span>(<span class="hljs-number">4</span>, <span class="hljs-string">'Peter'</span>, <span class="hljs-string">'Spector'</span>, <span class="hljs-string">'1998-01-20'</span>, <span class="hljs-number">3</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>…and finally let’s <strong>ALTER</strong> our school data to set a principal relationship for each school.</p>
+<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">UPDATE</span> school</span><br><span class="line"><span class="hljs-keyword">SET</span> principal_id = <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">WHERE</span> school_id = <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">UPDATE</span> school</span><br><span class="line"><span class="hljs-keyword">SET</span> principal_id = <span class="hljs-number">2</span></span><br><span class="line"><span class="hljs-keyword">WHERE</span> school_id = <span class="hljs-number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">UPDATE</span> school</span><br><span class="line"><span class="hljs-keyword">SET</span> principal_id = <span class="hljs-number">4</span></span><br><span class="line"><span class="hljs-keyword">WHERE</span> school_id = <span class="hljs-number">3</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>We now have our tables & data ready for some querying <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8">😁</span></p>
+<h2 id="SimpleQueryLanguage"><a href="#SimpleQueryLanguage" class="headerlink" title="SimpleQueryLanguage"></a><strong>S</strong>imple<strong>Q</strong>uery<strong>L</strong>anguage</h2><p>Let’s start with making some straight forward queries and solving the prompts below <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></p>
+<h4 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a><strong>SELECT</strong></h4><figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Get all students who were born before 1997</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> student</span><br><span class="line"><span class="hljs-keyword">WHERE</span> date_of_birth < <span class="hljs-string">'1997-01-01'</span>;</span><br></pre></td></tr></tbody></table></figure>
+<table>
+<thead>
+<tr>
+<th>student_id (PK)</th>
+<th>first_name</th>
+<th>last_name</th>
+<th>date_of_birth</th>
+<th>school_id (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Alison</td>
+<td>Bragg</td>
+<td>1996-02-08</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Morgan</td>
+<td>Lambert</td>
+<td>1994-11-19</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="WILDCARDS"><a href="#WILDCARDS" class="headerlink" title="WILDCARDS"></a><strong>WILDCARDS</strong></h4><p><strong>%</strong> = <strong>any number of characters</strong><br><strong>_</strong> = <strong>one character</strong></p>
+<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Get the school that contains 'Highschool' in it's name </span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> school</span><br><span class="line"><span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%Highschool'</span>;</span><br></pre></td></tr></tbody></table></figure>
+<table>
+<thead>
+<tr>
+<th>school_id (PK)</th>
+<th>name</th>
+<th>eircode</th>
+<th>principal_id (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Mount View Highschool</td>
+<td>GH123M</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Get all teachers that have a four letter first name and started work in August or September</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> teacher</span><br><span class="line"><span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">LENGTH</span>(first_name) <= <span class="number">4</=></span> <br><span class="line"><span class="hljs-keyword">AND</span> start_date <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'____-09-__'</span> </span><br><span class="line"><span class="hljs-keyword">OR</span> start_date <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'____-08-__'</span>;</span><br></pre></td></tr></tbody></table></figure>
+<table>
+<thead>
+<tr>
+<th>teacher_id (PK)</th>
+<th>first_name</th>
+<th>last_name</th>
+<th>start_date</th>
+<th>school_id (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>John</td>
+<td>Anderson</td>
+<td>1981-08-06</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Paul</td>
+<td>Berger</td>
+<td>1988-09-22</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a><strong>UNION</strong></h4><figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Get all of the first & last names alphabetically of all students & teacher</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> first_name, last_name <span class="hljs-keyword">from</span> student</span><br><span class="line"><span class="hljs-keyword">UNION</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> first_name, last_name <span class="hljs-keyword">from</span> teacher <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> first_name;</span><br></pre></td></tr></tbody></table></figure>
+<table>
+<thead>
+<tr>
+<th>first_name</th>
+<th>last_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alison</td>
+<td>Bragg</td>
+</tr>
+<tr>
+<td>Ann</td>
+<td>Connors</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Donut</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Anderson</td>
+</tr>
+<tr>
+<td>Mary</td>
+<td>Harkin</td>
+</tr>
+<tr>
+<td>Morgan</td>
+<td>Lambert</td>
+</tr>
+<tr>
+<td>Paul</td>
+<td>Berger</td>
+</tr>
+<tr>
+<td>Peter</td>
+<td>Spector</td>
+</tr>
+</tbody>
+</table>
+<h4 id="NESTED-QUERY"><a href="#NESTED-QUERY" class="headerlink" title="NESTED QUERY"></a><strong>NESTED QUERY</strong></h4><figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Get all principals</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> teacher</span><br><span class="line"><span class="hljs-keyword">WHERE</span> teacher_id <span class="hljs-keyword">IN</span> (</span><br><span class="line">  <span class="hljs-keyword">SELECT</span> school.principal_id <span class="hljs-keyword">FROM</span> school</span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure>
+<table>
+<thead>
+<tr>
+<th>teacher_id (PK)</th>
+<th>first_name</th>
+<th>last_name</th>
+<th>start_date</th>
+<th>school_id (FK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mary</td>
+<td>Harkin</td>
+<td>1987-01-19</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>John</td>
+<td>Anderson</td>
+<td>1981-08-06</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ann</td>
+<td>Connors</td>
+<td>2000-02-07</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a><strong>JOIN</strong></h4><figure class="highlight sql hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">--Get all principals & their school names</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">CONCAT</span>(teacher.first_name,<span class="hljs-string">' '</span>,teacher.last_name) <span class="hljs-keyword">AS</span> principal_name, school.name <span class="hljs-keyword">AS</span> school_name</span><br><span class="line"><span class="hljs-keyword">FROM</span> teacher</span><br><span class="line"><span class="hljs-keyword">JOIN</span> school</span><br><span class="line"><span class="hljs-keyword">ON</span> teacher.teacher_id = school.principal_id;</span><br></pre></td></tr></tbody></table></figure>
+<table>
+<thead>
+<tr>
+<th>principal_name</th>
+<th>school_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mary Harkin</td>
+<td>St. Mildrews</td>
+</tr>
+<tr>
+<td>John Anderson</td>
+<td>Mount View Highschool</td>
+</tr>
+<tr>
+<td>Ann Connors</td>
+<td>Athlone College</td>
+</tr>
+</tbody>
+</table>
+<p>The above examples cover most of all the basic / common queries you might run on a database. With these we could create some pretty complex queries, it just takes some practice.</p>
+<p>If you’re interested in brushing up on your SQL (or if you’re a beginner) I would highly recommend watching the <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener">FreeCodeCamp</a> 4+ hour YouTube video….it’s totally <strong>FREE</strong>! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span></p>
+<p><a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=HXV3zeQKqGY</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -231,7 +501,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/14/">14</a></li>
+        <li><a class="pagination-link" href="/page/15/">15</a></li>
         
     </ul>
 </nav>

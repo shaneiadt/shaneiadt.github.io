@@ -120,81 +120,34 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2020/10/10/Git-Know-How/" itemprop="url">Git Know How</a>
+            <a href="/2020/10/22/Full-Page-Screenshots-for-FREE/" itemprop="url">Full Page Screenshots for FREE</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2020-10-10T09:00:00.000Z" itemprop="datePublished">Oct 10 2020</time>
+            <time datetime="2020-10-22T16:51:45.000Z" itemprop="datePublished">Oct 22 2020</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            5 minutes read (About 818 words)
+            a few seconds read (About 90 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/800px-Git-logo.svg.png" alt></p>
-<p>Git is probably the most commonly used yet misunderstood tool in a developers arsenal. With Git power comes Git responsibilty! I find it’s always good to refresh core skills every now and again.</p>
-<p>The below list of topics cover mostly everything (90%) of what you’ll need in your dev to dev activities.</p>
-<ul>
-<li><a href="/#Adding-and-Committing">Adding and Committing</a></li>
-<li><a href="/#Branching">Branching</a></li>
-<li><a href="/#Merging">Merging</a></li>
-<li><a href="/#Rebasing">Rebasing</a></li>
-<li><a href="/#Relative-Refs">Relative Refs</a></li>
-<li><a href="/#Branch-Forcing">Branch Forcing</a></li>
-<li><a href="/#Reversing-Changings">Reversing Changings</a></li>
-<li><a href="/#Cherry-Picking">Cherry Picking</a></li>
-<li><a href="/#Interactive-Rebase">Interactive Rebase</a></li>
-<li><a href="/#Git-Tags">Git Tags</a></li>
-<li><a href="/#Git-Fetch">Git Fetch</a></li>
-<li><a href="/#Git-Pull">Git Pull</a></li>
-<li><a href="/#Git-Push">Git Push</a></li>
-</ul>
-<h2 id="Adding-and-Committing"><a href="#Adding-and-Committing" class="headerlink" title="Adding and Committing"></a>Adding and Committing</h2><p>In laymens terms this is similar to a large copy & paste, of just your tracked files of course.</p>
-<p>Think of commits as snapshots of your project directory.</p>
-<p>Commits are super lightweight & jumping from one to another is extremely fast.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Add everything!</span><br><span class="line">git add . / git add -A</span><br><span class="line"></span><br><span class="line">// Patching allows you to select which commits to essentially "patch" into a commit, pretty neat.</span><br><span class="line">git add -p / git commit -p</span><br><span class="line"></span><br><span class="line">// Add a commit message.</span><br><span class="line">git commit -m ""</span><br><span class="line"></span><br><span class="line">// This one I use personally all the time, it is a combo of -a & -m. Add & create a commit message.</span><br><span class="line">git commit -am ""</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Branching"><a href="#Branching" class="headerlink" title="Branching"></a>Branching</h2><p>Lightweight reference points to a specific commit without the bells & whistles.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Checkout a previous commit.</span><br><span class="line">git checkout [HASH]</span><br><span class="line"></span><br><span class="line">// Create a new branch from the current HEAD position</span><br><span class="line">git checkout -b [NAME]</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Merging"><a href="#Merging" class="headerlink" title="Merging"></a>Merging</h2><p>Combining branches is usually done using either a merge or rebase approach.</p>
-<p>Merging in Git creates a special commit that has two unique parents and maintains the repo’s git history along the way.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Branch to merge with.</span><br><span class="line">git merge [BRANCH]</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h2><p>Rebasing is the other method which essentially takes a set of commits, “copies” them, and drops them somewhere else.</p>
-<p>While this sounds confusing, the advantage of rebasing is that it can be used to make a nice linear sequence of commits. The commit log / history of the repository will be a lot cleaner if only rebasing is allowed.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Copy commits from a specific branch</span><br><span class="line">git rebase [branch / master]</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Relative-Refs"><a href="#Relative-Refs" class="headerlink" title="Relative Refs"></a>Relative Refs</h2><p>Furthermore, hashes are usually a lot longer in the real Git world as well. For instance, the hash of the commit that introduced the previous level is fed2da64c0efc5293610bdd892f82a58e8cbc5d8. Doesn’t exactly roll off the tongue…</p>
-<p>As commit hashes can be quite long Git provides us with the ability were we only need to specify enough characters of a hash until it uniquely identifies the commit. So I can type fed2 instead of the long string above.</p>
-<p>So instead of typing this:</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout fde4ihfr98eueowu0ew9j34toihfsdfw</span><br></pre></td></tr></tbody></table></figure>
-<p>We can identify this commit like so:</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout fde4</span><br></pre></td></tr></tbody></table></figure>
-<p>Remembering commit hashes to move around can be a bit cumbersome so Git provides us with a super fast way of jumping around with relative refs!</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// ^ = move upwards one commit.</span><br><span class="line">// HEAD^ = move backwards in time.</span><br><span class="line">git checkout HEAD^</span><br><span class="line"></span><br><span class="line">// ~<num> = move upwards a number of (3) times.</num></span><br><span class="line">git checkout HEAD~3</span><br><span class="line"></span><br><span class="line">// master^ = jump to the parent commit of master.</span><br><span class="line">git checkout master^</span><br><span class="line"></span><br><span class="line">// master^^ = jump to the grandparent commit of master.</span><br><span class="line">git checkout master^^</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Branch-Forcing"><a href="#Branch-Forcing" class="headerlink" title="Branch Forcing"></a>Branch Forcing</h2><p>You can directly reassign a branch to a commit with the -f option.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Moves (by force) the master branch to three parents behind HEAD.</span><br><span class="line">git branch -f master HEAD~3</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Reversing-Changings"><a href="#Reversing-Changings" class="headerlink" title="Reversing Changings"></a>Reversing Changings</h2><p>The two most common ways to reverse changes is with the “reset” & “revert” commands.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// This command creates a new commit that undoes the changes from a previous commit (doesn't modify existing history).</span><br><span class="line">git reset</span><br><span class="line"></span><br><span class="line">// It modifies the index the "staging area", this command may alter existing history.</span><br><span class="line">git revert</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Cherry-Picking"><a href="#Cherry-Picking" class="headerlink" title="Cherry Picking"></a>Cherry Picking</h2><p>With cherry-picking you can easily move commits around / re-order them.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick <commit-1> <commit-2> ...</commit-2></commit-1></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Interactive-Rebase"><a href="#Interactive-Rebase" class="headerlink" title="Interactive Rebase"></a>Interactive Rebase</h2><p>Git cherry-pick is great when you know which commits you want but if you don’t know then an interactive rebase may be the ticket.</p>
-<p>All interactive rebase means is using the rebase command with the -i option.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~4</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Git-Tags"><a href="#Git-Tags" class="headerlink" title="Git Tags"></a>Git Tags</h2><p>Mark a point in history for example different releases or some large feature update / change.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Tag the current commit I'm on with the "v1" tag.</span><br><span class="line">git tag v1 [hash]</span><br><span class="line"></span><br><span class="line">// How far is the current commit I am on away from the closest anchor tag?</span><br><span class="line">git describe <ref></ref></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Git-Remotes"><a href="#Git-Remotes" class="headerlink" title="Git Remotes"></a>Git Remotes</h2><p>Clone a remote repo to your machine :)</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone [REPO LOCATION URI]</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Git-Fetch"><a href="#Git-Fetch" class="headerlink" title="Git Fetch"></a>Git Fetch</h2><p>Fetch updates on the remote & apply them to the origin repo, note that this command does not apply / merge the updates into your master or current branch.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h2><p>This command does two things it actually does a <code>fetch</code> & <code>merge</code> all in one which is great.</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="Git-Push"><a href="#Git-Push" class="headerlink" title="Git Push"></a>Git Push</h2><p>When you have some local changed committed upload / push to the the remote origin :)</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></tbody></table></figure><script>
+        <p>Fed up looking for an extension, app or something just to take a ruddy full page screen shot without breaking the bank?</p>
+<p>Well have I got a something super cool for you & it’s totally <strong>FREE</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p>
+<p>1) Open <strong>Chrome</strong> > <strong>DevTools</strong></p>
+<p><img src="/images/chrome-devtools/open-the-console.png" alt></p>
+<p>2) Hit the three dots & click on “<strong>Run Command</strong>“ (<code>Ctrl + Shift + P</code>)</p>
+<p>3) Type in “<strong>Screenshot</strong>“ and select the “<strong>Capture full size screenshot</strong>“</p>
+<p><img src="/images/chrome-devtools/run-command.png" alt></p>
+<p>4) It should only take a few seconds & it will auto download to your machine</p>
+<p>5) Enjoy <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span></p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -240,7 +193,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/14/">14</a></li>
+        <li><a class="pagination-link" href="/page/15/">15</a></li>
         
     </ul>
 </nav>
