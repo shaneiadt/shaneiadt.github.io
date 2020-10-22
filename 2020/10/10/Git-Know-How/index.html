@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Git Know How - Ram.blings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="A collection of tech related ramblings from a man with a computer.">
+
+
+
+<meta name="keywords" content="Web Development, JavaScript, CSS,">
+
+
+
+    <meta name="description" content="Git is probably the most commonly used yet misunderstood tool in a developers arsenal. With Git power comes Git responsibilty! I find it’s always good to refresh core skills every now and again. The">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git Know How">
+<meta property="og:url" content="https://shaneiadt.github.io/2020/10/10/Git-Know-How/index.html">
+<meta property="og:site_name" content="Ram.blings">
+<meta property="og:description" content="Git is probably the most commonly used yet misunderstood tool in a developers arsenal. With Git power comes Git responsibilty! I find it’s always good to refresh core skills every now and again. The">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/800px-Git-logo.svg.png">
+<meta property="og:updated_time" content="2020-10-21T08:46:21.660Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git Know How">
+<meta name="twitter:description" content="Git is probably the most commonly used yet misunderstood tool in a developers arsenal. With Git power comes Git responsibilty! I find it’s always good to refresh core skills every now and again. The">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/800px-Git-logo.svg.png">
+<meta name="twitter:creator" content="@ShaneOMoore1">
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    Ram.blings
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">Archives</a>
+            
+            <a class="navbar-item " href="/resume">Resume</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/shaneiadt">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Git Know How
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-10-10T09:00:00.000Z" itemprop="datePublished">Oct 10 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 minutes read (About 818 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/800px-Git-logo.svg.png" alt></p>
+<p>Git is probably the most commonly used yet misunderstood tool in a developers arsenal. With Git power comes Git responsibilty! I find it’s always good to refresh core skills every now and again.</p>
+<p>The below list of topics cover mostly everything (90%) of what you’ll need in your dev to dev activities.</p>
+<ul>
+<li><a href="/#Adding-and-Committing">Adding and Committing</a></li>
+<li><a href="/#Branching">Branching</a></li>
+<li><a href="/#Merging">Merging</a></li>
+<li><a href="/#Rebasing">Rebasing</a></li>
+<li><a href="/#Relative-Refs">Relative Refs</a></li>
+<li><a href="/#Branch-Forcing">Branch Forcing</a></li>
+<li><a href="/#Reversing-Changings">Reversing Changings</a></li>
+<li><a href="/#Cherry-Picking">Cherry Picking</a></li>
+<li><a href="/#Interactive-Rebase">Interactive Rebase</a></li>
+<li><a href="/#Git-Tags">Git Tags</a></li>
+<li><a href="/#Git-Fetch">Git Fetch</a></li>
+<li><a href="/#Git-Pull">Git Pull</a></li>
+<li><a href="/#Git-Push">Git Push</a></li>
+</ul>
+<h2 id="Adding-and-Committing"><a href="#Adding-and-Committing" class="headerlink" title="Adding and Committing"></a>Adding and Committing</h2><p>In laymens terms this is similar to a large copy & paste, of just your tracked files of course.</p>
+<p>Think of commits as snapshots of your project directory.</p>
+<p>Commits are super lightweight & jumping from one to another is extremely fast.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Add everything!</span><br><span class="line">git add . / git add -A</span><br><span class="line"></span><br><span class="line">// Patching allows you to select which commits to essentially "patch" into a commit, pretty neat.</span><br><span class="line">git add -p / git commit -p</span><br><span class="line"></span><br><span class="line">// Add a commit message.</span><br><span class="line">git commit -m ""</span><br><span class="line"></span><br><span class="line">// This one I use personally all the time, it is a combo of -a & -m. Add & create a commit message.</span><br><span class="line">git commit -am ""</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Branching"><a href="#Branching" class="headerlink" title="Branching"></a>Branching</h2><p>Lightweight reference points to a specific commit without the bells & whistles.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Checkout a previous commit.</span><br><span class="line">git checkout [HASH]</span><br><span class="line"></span><br><span class="line">// Create a new branch from the current HEAD position</span><br><span class="line">git checkout -b [NAME]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Merging"><a href="#Merging" class="headerlink" title="Merging"></a>Merging</h2><p>Combining branches is usually done using either a merge or rebase approach.</p>
+<p>Merging in Git creates a special commit that has two unique parents and maintains the repo’s git history along the way.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Branch to merge with.</span><br><span class="line">git merge [BRANCH]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h2><p>Rebasing is the other method which essentially takes a set of commits, “copies” them, and drops them somewhere else.</p>
+<p>While this sounds confusing, the advantage of rebasing is that it can be used to make a nice linear sequence of commits. The commit log / history of the repository will be a lot cleaner if only rebasing is allowed.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Copy commits from a specific branch</span><br><span class="line">git rebase [branch / master]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Relative-Refs"><a href="#Relative-Refs" class="headerlink" title="Relative Refs"></a>Relative Refs</h2><p>Furthermore, hashes are usually a lot longer in the real Git world as well. For instance, the hash of the commit that introduced the previous level is fed2da64c0efc5293610bdd892f82a58e8cbc5d8. Doesn’t exactly roll off the tongue…</p>
+<p>As commit hashes can be quite long Git provides us with the ability were we only need to specify enough characters of a hash until it uniquely identifies the commit. So I can type fed2 instead of the long string above.</p>
+<p>So instead of typing this:</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout fde4ihfr98eueowu0ew9j34toihfsdfw</span><br></pre></td></tr></tbody></table></figure>
+<p>We can identify this commit like so:</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout fde4</span><br></pre></td></tr></tbody></table></figure>
+<p>Remembering commit hashes to move around can be a bit cumbersome so Git provides us with a super fast way of jumping around with relative refs!</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// ^ = move upwards one commit.</span><br><span class="line">// HEAD^ = move backwards in time.</span><br><span class="line">git checkout HEAD^</span><br><span class="line"></span><br><span class="line">// ~<num> = move upwards a number of (3) times.</num></span><br><span class="line">git checkout HEAD~3</span><br><span class="line"></span><br><span class="line">// master^ = jump to the parent commit of master.</span><br><span class="line">git checkout master^</span><br><span class="line"></span><br><span class="line">// master^^ = jump to the grandparent commit of master.</span><br><span class="line">git checkout master^^</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Branch-Forcing"><a href="#Branch-Forcing" class="headerlink" title="Branch Forcing"></a>Branch Forcing</h2><p>You can directly reassign a branch to a commit with the -f option.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Moves (by force) the master branch to three parents behind HEAD.</span><br><span class="line">git branch -f master HEAD~3</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Reversing-Changings"><a href="#Reversing-Changings" class="headerlink" title="Reversing Changings"></a>Reversing Changings</h2><p>The two most common ways to reverse changes is with the “reset” & “revert” commands.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// This command creates a new commit that undoes the changes from a previous commit (doesn't modify existing history).</span><br><span class="line">git reset</span><br><span class="line"></span><br><span class="line">// It modifies the index the "staging area", this command may alter existing history.</span><br><span class="line">git revert</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Cherry-Picking"><a href="#Cherry-Picking" class="headerlink" title="Cherry Picking"></a>Cherry Picking</h2><p>With cherry-picking you can easily move commits around / re-order them.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick <commit-1> <commit-2> ...</commit-2></commit-1></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Interactive-Rebase"><a href="#Interactive-Rebase" class="headerlink" title="Interactive Rebase"></a>Interactive Rebase</h2><p>Git cherry-pick is great when you know which commits you want but if you don’t know then an interactive rebase may be the ticket.</p>
+<p>All interactive rebase means is using the rebase command with the -i option.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~4</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Git-Tags"><a href="#Git-Tags" class="headerlink" title="Git Tags"></a>Git Tags</h2><p>Mark a point in history for example different releases or some large feature update / change.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Tag the current commit I'm on with the "v1" tag.</span><br><span class="line">git tag v1 [hash]</span><br><span class="line"></span><br><span class="line">// How far is the current commit I am on away from the closest anchor tag?</span><br><span class="line">git describe <ref></ref></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Git-Remotes"><a href="#Git-Remotes" class="headerlink" title="Git Remotes"></a>Git Remotes</h2><p>Clone a remote repo to your machine :)</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone [REPO LOCATION URI]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Git-Fetch"><a href="#Git-Fetch" class="headerlink" title="Git Fetch"></a>Git Fetch</h2><p>Fetch updates on the remote & apply them to the origin repo, note that this command does not apply / merge the updates into your master or current branch.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h2><p>This command does two things it actually does a <code>fetch</code> & <code>merge</code> all in one which is great.</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Git-Push"><a href="#Git-Push" class="headerlink" title="Git Push"></a>Git Push</h2><p>When you have some local changed committed upload / push to the the remote origin :)</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Git/">#Git</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2020/09/05/SQL-101-The-Refresher/">SQL 101 the Refresher</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5c9b9e5b9852eb0011ce9dc3&amp;product=social-ab" async="async"></script>
+
+</div>
+
+
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 Shane O&#39;Moore&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/shaneiadt">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
