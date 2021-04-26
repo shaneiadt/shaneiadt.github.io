@@ -2,5 +2,7 @@ theme: jekyll-theme-cayman
 relative_links:
   enabled: true
   collections: true
+plugins:
+ - jemoji
 include:
   - Setup-Kubernetes-On-Windows-10.md
