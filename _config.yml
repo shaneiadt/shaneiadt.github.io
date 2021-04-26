@@ -2,3 +2,5 @@ theme: jekyll-theme-cayman
 relative_links:
   enabled: true
   collections: true
+include:
+  - Setup-Kubernetes-On-Windows-10.md
