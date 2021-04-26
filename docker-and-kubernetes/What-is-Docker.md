@@ -4,7 +4,7 @@ date: 2019-10-14 17:00:00
 tags: ['Docker']
 ---
 
-![What is Docker?](/images/what-is-docker/docker.png)
+![What is Docker?](../assets/images/Docker-And-Kubernetes/docker.png)
 
 Continuous development on a project will result in it expanding (it's natural man deal with it :four_leaf_clover:), as our projects / services grow so will our code base...into a monolithic monster! Managing & monitoring these services can be a massive pain...even setting up an environment to develop on can take some time & produce unwanted brain headaches :dizzy_face:
 
