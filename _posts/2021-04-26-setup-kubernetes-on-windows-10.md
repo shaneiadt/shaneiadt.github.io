@@ -27,18 +27,18 @@ The following outlines setting up Kubernetes via the **Docker Desktop** applicat
 
 1. Open Docker Desktop and navigate to the settings panel by clicking on the **gear icon**
 
-![](assets/images/what-is-docker/go-to-settings.png)
+![](/assets/images/what-is-docker/go-to-settings.png)
 
 2. Under General **Enable WSL 2**
 
-![](assets/images/what-is-docker/enable-wsl-2.png)
+![](/assets/images/what-is-docker/enable-wsl-2.png)
 
 3. Navigate to the **Kubernetes** panel and click the checkbox **Enable Kubernetes** then click **Apply & Restart**.
 
-![](assets/images/what-is-docker/enable-kubernetes.png)
+![](/assets/images/what-is-docker/enable-kubernetes.png)
 
 4. Once installed you will need to restart Docker Desktop. Now open a command terminal and run `kubectl version` to ensure everything is installed correctly.
 
-![](assets/images/what-is-docker/kubectl-version.png)
+![](/assets/images/what-is-docker/kubectl-version.png)
 
 Now we have Kubernetes installed hooray :smile:
