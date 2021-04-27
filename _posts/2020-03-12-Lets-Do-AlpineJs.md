@@ -1,7 +1,11 @@
 ---
-title: Lets Do AlpineJs
+title: "Lets Do AlpineJs"
 date: 2020-03-12 17:05:29
-tags: ['JavaScript','AlpineJS']
+categories:
+    - Blog
+tags:
+    - JavaScript
+    - AlpineJS
 ---
 
 [AlpineJs](https://github.com/alpinejs/alpine) is (quote from Github README):
