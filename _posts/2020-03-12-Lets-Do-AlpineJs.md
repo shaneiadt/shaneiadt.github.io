@@ -25,15 +25,15 @@ Pretty straight forward definition, now why might we use this framework over one
 
 You can use `npm` or take a CDN approach like below.
 
-```HTML
+```html
 <html>
     <head>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer><&#47;script>
-    <&#47;head>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    </head>
     <body>
-        <h1>Lets Do AlpineJs<&#47;h1>
-    <&#47;body>
-<&#47;html>
+        <h1>Lets Do AlpineJs</h1>
+    </body>
+</html>
 ```
 
 ## Simple Example
@@ -44,16 +44,16 @@ The `x-data` attribute maintains state within it's current element scope.
 
 The `@click` directive binds to the buttons native click event listener.
 
-```HTML
+```html
 <html>
     <head>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer><&#47;script>
-    <&#47;head>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    </head>
     <body x-data="{show:false}">
-        <h1 x-show="show">Lets Do AlpineJs<&#47;h1>
-        <button @click="show=!show">Toggle<&#47;button>
-    <&#47;body>
-<&#47;html>
+        <h1 x-show="show">Lets Do AlpineJs</h1>
+        <button @click="show=!show">Toggle</button>
+    </body>
+</html>
 ```
 
 Awesome...what else do we have?
@@ -66,34 +66,34 @@ For things like Modal windows. You can bind to pretty much any element attribute
 
 If you have ever used Vue, a lot of this will feel familiar.
 
-```HTML
+```html
 <div x-data="{ isModalOpen: false }">
 
     <div class="modal" :class="{'show-modal': isModalOpen === true}" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title<&#47;h5>
+                    <h5 class="modal-title">Modal title</h5>
                     <button type="button" class="close" @click="isModalOpen = false">
-                        <span aria-hidden="true">&times;<&#47;span>
-                    <&#47;button>
-                <&#47;div>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="modal-body">
-                    <p>Modal body text goes here.<&#47;p>
-                <&#47;div>
+                    <p>Modal body text goes here.</p>
+                </div>
                 <div class="modal-footer">
                     <button x-ref="modalCloseButton" type="button" class="btn btn-secondary"
-                        @click="isModalOpen = false">Close<&#47;button>
-                <&#47;div>
-            <&#47;div>
-        <&#47;div>
-    <&#47;div>
+                        @click="isModalOpen = false">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
   <button type="button" @click="isModalOpen = true" class="btn btn-primary">
     Open Modal
-  <&#47;button>
+  </button>
 
-<&#47;div>
+</div>
 ```
 
 ## Other Directives
@@ -102,21 +102,21 @@ Here are some examples of other directives **AlpineJs** gives us.
 
 `x-show`
 
-```HTML
+```html
 <div class="card" x-show="currentTab === 'Home'">
     <div class="card-body">
-        <h5 class="card-title">Home<&#47;h5>
-        <h6 class="card-subtitle mb-2 text-muted">subtitle<&#47;h6>
-        <p class="card-text">Paragraph text goes here!<&#47;p>
-    <&#47;div>
-<&#47;div>
+        <h5 class="card-title">Home</h5>
+        <h6 class="card-subtitle mb-2 text-muted">subtitle</h6>
+        <p class="card-text">Paragraph text goes here!</p>
+    </div>
+</div>
 ```
 
 `x-model`, `x-text`, `x-html`
 
-```HTML
-<p x-html="exampleModel"><&#47;p>
-<p x-text="exampleModel"><&#47;p>
+```html
+<p x-html="exampleModel"></p>
+<p x-text="exampleModel"></p>
 <input type="text" x-model="exampleModel" />
 ```
 
@@ -124,7 +124,7 @@ Here are some examples of other directives **AlpineJs** gives us.
 
 Here's an example fetching some data on button click & using the magic `$refs` property to update the innerHTML of a div element.
 
-```HTML
+```html
 <div>
     <button
         class="btn btn-primary"
@@ -132,12 +132,12 @@ Here's an example fetching some data on button click & using the magic `$refs` p
                 .then(response => response.json())
                 .then(json => { $refs.todo.innerHTML = JSON.stringify(json) })">
         Fetch Todo Title
-    <&#47;button>
+    </button>
 
     <div x-ref="todo">
         Click button above to fetch some data
-    <&#47;div>
-<&#47;div>
+    </div>
+</div>
 ```
 
 `x-for`
@@ -146,10 +146,10 @@ Loop through stuff :smile:
 
 Only catch with this one is we need to use the `template` element not a regular DOM element.
 
-```HTML
+```html
 <template x-for="item in items" :key="item">
-    <div x-text="item"><&#47;div>
-<&#47;template>
+    <div x-text="item"></div>
+</template>
 ```
 
 These are only a few examples, to read about the rest visit [Alpine](https://github.com/alpinejs/alpine) on Github.
