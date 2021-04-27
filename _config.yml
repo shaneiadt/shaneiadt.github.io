@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Shane O'Moore"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Here are some general ramblings from a follow dev."
+  bio    : "Ramblings from a Sligo (Ireland) based Web Developer."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
