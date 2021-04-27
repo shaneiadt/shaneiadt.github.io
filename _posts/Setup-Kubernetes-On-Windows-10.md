@@ -1,7 +1,11 @@
 ---
-title: Setup Kubernetes on Windows 10
-date: 2021-04-26 17:00:00
-tags: ['Kubernetes', 'Docker']
+title: "Setup Kubernetes On Windows 10"
+excerpt_separator: "<!--more-->"
+categories:
+  - Blog
+tags:
+  - Kubernetes
+  - Docker
 ---
 
 ![](/assets/images/Docker-And-Kubernetes/docker.png)
