@@ -26,7 +26,7 @@ This hook is amazing, it works slightly different from the class based approach.
 
 [View Demo Code](https://codesandbox.io/embed/hopeful-bassi-tvtsw)
 
-```Javascript
+```javascript
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
