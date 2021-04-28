@@ -1,7 +1,11 @@
 ---
-title: Advanced Generics - TypeScript
+title: "Advanced Generics - TypeScript"
 date: 2019-12-18 18:05:34
-tags: ['TypeScript', 'Generics']
+categories:
+  - Blog
+tags:
+  - TypeScript
+  - Generics
 ---
 
 ## Quick Re-cap on Generics
