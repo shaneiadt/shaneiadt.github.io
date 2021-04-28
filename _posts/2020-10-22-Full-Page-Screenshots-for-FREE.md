@@ -13,13 +13,9 @@ Well have I got a something super cool for you & it's totally **FREE** :smile:
 
 1) Open **Chrome** > **DevTools**
 
-![](/assets/images/chrome-devtools/open-the-console.png)
-
 2) Hit the three dots & click on "**Run Command**" (`Ctrl + Shift + P`)
 
 3) Type in "**Screenshot**" and select the "**Capture full size screenshot**"
-
-![](/assets/images/chrome-devtools/run-command.png)
 
 4) It should only take a few seconds & it will auto download to your machine
 
