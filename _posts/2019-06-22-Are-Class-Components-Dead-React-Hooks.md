@@ -1,7 +1,9 @@
 ---
-title: Are Class Components Dead? - React Hooks
+title: "Are Class Components Dead? - React Hooks"
 date: 2019-06-22 14:20:38
-tags: ['React Hooks', 'Javascript']
+tags: 
+  - React Hooks
+  - Javascript
 ---
 
 Since the full release of Hooks with React version 16.8 the community has almost gone insane. Some developers have gone so bat shit crazy they’ve re-written all their apps to use React Hooks!
