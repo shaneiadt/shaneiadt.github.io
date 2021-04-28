@@ -1,8 +1,10 @@
 ---
-title: (CSS) Magic is real with Houdini
-tags: ['CSS','Houdini','JavaScript API']
+title: "(CSS) Magic is real with Houdini"
 date: 2019-03-29 15:50:25
-disqusId: 834u03495
+tags: 
+    - CSS
+    - Houdini
+    - JavaScript API
 ---
 
 Fed up with bloated hacky JavaScript manipulating CSS? _Me too!_ 
