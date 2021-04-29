@@ -1,7 +1,8 @@
 ---
-title: Git Know How
+title: "Git Know How"
 date: 2020-10-10 10:00:00
-tags: ['Git']
+tags:
+    - Git
 ---
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/800px-Git-logo.svg.png)
