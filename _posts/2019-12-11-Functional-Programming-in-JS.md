@@ -1,10 +1,12 @@
 ---
-title: Functional Programming in JS
+title: "Functional Programming in JS"
 date: 2019-12-11 18:10:34
-tags: ['Functional Programming', 'JavaScript']
+tags: 
+  - Functional Programming
+  - JavaScript
 ---
 
-![](/images/what-is-functional-propgramming/fp.jpg)
+![](/assets/images/what-is-functional-propgramming/fp.jpg)
 
 # What is Functional Programming?
 
