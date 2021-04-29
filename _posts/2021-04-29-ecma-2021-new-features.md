@@ -23,7 +23,7 @@ Here's what's new in the world of ECMAScript 2021 (that I find interesting):
 
 # Numeric Separators
 
-This new addition aims to improve the readability of number & digits groups.
+This new addition aims to improve the readability of number & digit groups.
 
 ```javascript
 const oneThousandAndChange = 1_000.69; // 1,000.69
@@ -79,7 +79,7 @@ d ||= 4;
 
 ## Nullish Coalescing & Equals (??=)
 
-Assign when the value is null or undefined. This one is pretty straight forward but can be confusing all at the sametime.
+Assign when the value is null or undefined. This one is pretty straight forward but can be confusing all at the same time.
 
 ```javascript
 let e = null;
