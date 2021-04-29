@@ -7,9 +7,9 @@ tags:
     - Docker
 ---
 
-![What is Docker?](../assets/images/Docker-And-Kubernetes/docker.png)
-
 Continuous development on a project will result in it expanding (it's natural man deal with it :four_leaf_clover:), as our projects / services grow so will our code base...into a monolithic monster! Managing & monitoring these services can be a massive pain...even setting up an environment to develop on can take some time & produce unwanted brain headaches :dizzy_face:
+
+![What is Docker?](../assets/images/Docker-And-Kubernetes/docker.png)
 
 Enter [Docker](https://www.docker.com/)! This mystical application gives us a way to run all our services or **docker images** across **multiple environments** preventing that initial environment setup and management fuss!
 

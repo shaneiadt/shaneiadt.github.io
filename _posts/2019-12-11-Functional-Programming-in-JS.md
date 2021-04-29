@@ -8,8 +8,6 @@ tags:
   - JavaScript
 ---
 
-![](/assets/images/what-is-functional-propgramming/fp.jpg)
-
 # What is Functional Programming?
 
 You may have heard this magical phrase **[Functional Programming](https://en.wikipedia.org/wiki/Functional_programming)** (FP) flying around  recently. Some people are touting it as the new or best approach for any project.
@@ -21,6 +19,8 @@ FP came from mathematics & is originally based on functional abstraction with [L
 Some of the most popular FP languages at the moment are **Haskell**, **Scala** & **Clojure**.
 
 Luckily for us **JavaScript** supports all of the awesome conceptions we're going to cover in this article.
+
+![](/assets/images/what-is-functional-propgramming/fp.jpg)
 
 # Core Principles
 

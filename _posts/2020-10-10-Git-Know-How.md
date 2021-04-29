@@ -7,11 +7,11 @@ tags:
     - Git
 ---
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/800px-Git-logo.svg.png)
-
 Git is probably the most commonly used yet misunderstood tool in a developers arsenal. With Git power comes Git responsibilty! I find it's always good to refresh core skills every now and again.
 
 The below list of topics cover mostly everything (90%) of what you'll need in your dev to dev activities.
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/800px-Git-logo.svg.png)
 
 - [Adding and Committing](/#Adding-and-Committing)
 - [Branching](/#Branching)
