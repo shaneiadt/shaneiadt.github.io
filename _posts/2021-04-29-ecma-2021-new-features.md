@@ -1,6 +1,6 @@
 ---
 title: "New 2021 JavaScript Features"
-date: 2019-03-29 14:00:00
+date: 2021-04-29 14:00:00
 categories:
   - Blog
 tags:
@@ -16,7 +16,7 @@ Here's what's new in the world of ECMAScript 2021 (that I find interesting):
 - String .replaceAll()
 - Logical assignment operators
   - And & Equals (&&=)
-  - OR & Equals (||=)
+  - OR & Equals (&#124;&#124;=)
   - Nullish Coalescing & Equals (??=)
 - Promise.any()
 - Private class methods
@@ -61,7 +61,7 @@ let b = 3;
 b &&= 4;
 ```
 
-## OR & Equals (||=)
+## OR & Equals (&#124;&#124;=)
 
 Assign when the value is falsy.
 
