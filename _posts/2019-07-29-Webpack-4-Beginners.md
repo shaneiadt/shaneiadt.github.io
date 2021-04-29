@@ -1,7 +1,10 @@
 ---
-title: Webpack 4 Beginners
+title: "Webpack 4 Beginners"
 date: 2019-07-29 18:56:02
-tags: ['Webpack','Bundling']
+categories:
+  - Blog
+tags: 
+  - Webpack
 ---
 
 In this article we will run over the basic setup for [Webpack 4](https://webpack.js.org/). Why Webpack & not some other bundler like [Parcel](https://parceljs.org/) or [RollUp](https://rollupjs.org/guide/en/)? I know Webpack so I figured that would be a good start, lets keep it simple shall we!
@@ -72,7 +75,7 @@ Will you look at that we did it! A lovely **dist** folder containing a **main.js
 
 This is our bundled js believe it our not. To demonstrate copy the code from your main.js file open your console window in Chrome (or whatever browser you're using) & run it.
 
-![](/images/webpack-4-beginners/first-bundle.jpg)
+![](/assets/images/webpack-4-beginners/first-bundle.jpg)
 
 We now have a simple module bundler setup, what now? Let's test our bundler to make sure it's actually working.
 

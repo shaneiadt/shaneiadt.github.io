@@ -1,7 +1,10 @@
 ---
-title: Webpack-4-Beginners-Configuration
+title: "Webpack-4-Beginners-Configuration"
 date: 2019-07-31 19:09:58
-tags: ['webpack','configuration']
+categories:
+  - Blog
+tags:
+    - Webpack
 ---
 
 Welcome to Part 2 of our journey into understanding Webpack just a wee bit better together! If you haven't read [Part 1](https://shaneiadt.github.io/2019/07/29/Webpack-4-Beginners/) I suggest you check it out.

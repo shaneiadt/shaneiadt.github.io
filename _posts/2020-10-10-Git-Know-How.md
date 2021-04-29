@@ -1,6 +1,8 @@
 ---
 title: "Git Know How"
 date: 2020-10-10 10:00:00
+categories:
+  - Blog
 tags:
     - Git
 ---

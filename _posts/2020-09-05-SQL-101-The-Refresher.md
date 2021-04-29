@@ -1,6 +1,8 @@
 ---
 title: "SQL 101 The Refresher"
 date: 2020-09-05 07:56:02
+categories:
+  - Blog
 tags:
 	- SQL
 ---

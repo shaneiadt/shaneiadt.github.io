@@ -1,7 +1,11 @@
 ---
-title: TypeScript Decorators
+title: "TypeScript Decorators"
 date: 2020-01-06 18:23:35
-tags: ['TypeScript', 'Decorators']
+categories:
+  - Blog
+tags:
+  - TypeScript
+  - Decorators
 ---
 
 First of all just so we're clear, the idea of **classes** is just that, an idea. Classes by default **do not exist in JavaScript**, they're just syntactic sugar. JavaScript was developed with a **prototypical inheritance** model.

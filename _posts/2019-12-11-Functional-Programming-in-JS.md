@@ -1,6 +1,8 @@
 ---
 title: "Functional Programming in JS"
 date: 2019-12-11 18:10:34
+categories:
+  - Blog
 tags: 
   - Functional Programming
   - JavaScript

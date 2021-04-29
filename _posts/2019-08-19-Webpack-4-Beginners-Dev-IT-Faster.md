@@ -1,7 +1,10 @@
 ---
-title: Webpack 4 Beginners Dev IT Faster
+title: "Webpack 4 Beginners Dev IT Faster"
 date: 2019-08-19 15:54:28
-tags: ['webpack','dev server']
+categories:
+  - Blog
+tags:
+    - Webpack
 ---
 
 Welcome to **Part 3** of our journey into understanding **Webpack** just a wee bit better together! If you haven't read any of the previous articles I'd suggest having a goo.
@@ -55,7 +58,7 @@ module.exports = {
 
 From here yes we can run out `npm start` script to launch our dev server which will server our **./dist** directory like so.
 
-![](/images/webpack-4-beginners/dev-server-console-3.jpg)
+![](/assets/images/webpack-4-beginners/dev-server-console-3.jpg)
 
 For example sake & ease let's create an **index.html **file so our bundle.js can load into for dev purposes. The simplest way to do this is to use a plugin called `html-webpack-plugin`
 
@@ -97,7 +100,7 @@ And that's it....now run `npm start` test. A new browser window should open up o
 
 **Open your dev tools** & you should see some console logs appear!
 
-![](/images/webpack-4-beginners/dev-server-console.jpg)
+![](/assets/images/webpack-4-beginners/dev-server-console.jpg)
 
 ## Testing Live Reloading
 
@@ -111,7 +114,7 @@ export default "Webpack is even awesomer with Webpack Dev Server!!!"
 
 Now save & you should see in your **terminal window** our **dev server re-compile** all our assets & *automagically* :sparkle: update everything being served locally.
 
-![](/images/webpack-4-beginners/dev-server-console-2.jpg)
+![](/assets/images/webpack-4-beginners/dev-server-console-2.jpg)
 
 ## Further Configuration
 

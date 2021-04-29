@@ -1,6 +1,8 @@
 ---
 title: "Start Using The Shadow DOM"
 date: 2019-09-11 09:22:27
+categories:
+  - Blog
 tags:
     - HTML
     - DOM

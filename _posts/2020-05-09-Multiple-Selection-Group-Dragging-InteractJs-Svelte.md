@@ -1,6 +1,8 @@
 ---
 title: "Multiple Selection & Group Dragging - InteractJs & Svelte"
 date: 2020-05-09 09:21:57
+categories:
+  - Blog
 tags:
   - Drag & Drop
   - InteractJs

@@ -1,6 +1,8 @@
 ---
 title: "Are Class Components Dead? - React Hooks"
 date: 2019-06-22 14:20:38
+categories:
+  - Blog
 tags: 
   - React Hooks
   - Javascript

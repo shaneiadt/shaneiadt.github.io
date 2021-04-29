@@ -1,6 +1,8 @@
 ---
 title: "Full Page Screenshots for FREE"
 date: 2020-10-22 17:51:45
+categories:
+  - Blog
 tags: 
     - Chrome
     - DevTools

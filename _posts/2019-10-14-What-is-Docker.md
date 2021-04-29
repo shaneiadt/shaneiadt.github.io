@@ -1,7 +1,10 @@
 ---
-title: What is Docker?
+title: "What is Docker?"
 date: 2019-10-14 17:00:00
-tags: ['Docker']
+categories:
+  - Blog
+tags:
+    - Docker
 ---
 
 ![What is Docker?](../assets/images/Docker-And-Kubernetes/docker.png)
