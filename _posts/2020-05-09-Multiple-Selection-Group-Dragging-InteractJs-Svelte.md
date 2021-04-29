@@ -1,7 +1,10 @@
 ---
-title: Multiple Selection & Group Dragging - InteractJs & Svelte
+title: "Multiple Selection & Group Dragging - InteractJs & Svelte"
 date: 2020-05-09 09:21:57
-tags: ['Drag & Drop','InteractJs','Svelte']
+tags:
+  - Drag & Drop
+  - InteractJs
+  - Svelte
 ---
 
 If you've ever touched the [HTML Drap and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) you'll know it can be a bit overwhelming somethings.
@@ -29,11 +32,11 @@ HTML
 
 ```html
 <div id="container">
-  <div class="item"><span>Item 1<&#47;span><&#47;div>
-  <div class="item"><span>Item 2<&#47;span><&#47;div>
-  <div class="item"><span>Item 3<&#47;span><&#47;div>
-  <div class="item"><span>Item 4<&#47;span><&#47;div>
-<&#47;div>
+  <div class="item"><span>Item 1</span></div>
+  <div class="item"><span>Item 2</span></div>
+  <div class="item"><span>Item 3</span></div>
+  <div class="item"><span>Item 4</span></div>
+</div>
 ```
 
 CSS
@@ -82,7 +85,7 @@ CSS
 
 You should end up with something that looks like this.
 
-![HTML and CSS](/images/interactjs-and-svelte/html-and-css.jpg)
+![HTML and CSS](/assets/images/interactjs-and-svelte/html-and-css.jpg)
 
 # Moving Stuff Around
 
@@ -177,10 +180,10 @@ One last step is to update our item elements setting their initial x, y position
 
 ```html
 <div id="container">
-  <div class="item" data-x="0" data-y="0"><span>Item 1<&#47;span><&#47;div>
-  <div class="item" data-x="0" data-y="0"><span>Item 2<&#47;span><&#47;div>
-  <div class="item" data-x="0" data-y="0"><span>Item 3<&#47;span><&#47;div>
-  <div class="item" data-x="0" data-y="0"><span>Item 4<&#47;span><&#47;div>
+  <div class="item" data-x="0" data-y="0"><span>Item 1</span></div>
+  <div class="item" data-x="0" data-y="0"><span>Item 2</span></div>
+  <div class="item" data-x="0" data-y="0"><span>Item 3</span></div>
+  <div class="item" data-x="0" data-y="0"><span>Item 4</span></div>
 </div>
 ```
 
@@ -308,10 +311,10 @@ function isInBounds(obj1, obj2) {
 
 ```html
 <div bind:this={canvas} id="container" on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove}>
-  <div class="item" data-x="0" data-y="0"><span>Item 1<&#47;span><&#47;div>
-  <div class="item" data-x="0" data-y="0"><span>Item 2<&#47;span><&#47;div>
-  <div class="item" data-x="0" data-y="0"><span>Item 3<&#47;span><&#47;div>
-  <div class="item" data-x="0" data-y="0"><span>Item 4<&#47;span><&#47;div>
+  <div class="item" data-x="0" data-y="0"><span>Item 1</span></div>
+  <div class="item" data-x="0" data-y="0"><span>Item 2</span></div>
+  <div class="item" data-x="0" data-y="0"><span>Item 3</span></div>
+  <div class="item" data-x="0" data-y="0"><span>Item 4</span></div>
 </div>
 ```
 
@@ -319,7 +322,7 @@ function isInBounds(obj1, obj2) {
 
 That was quite a lot...but at the end of all this we should have a little some some like so...
 
-![Drag and Drop Final](/images/interactjs-and-svelte/drag-and-drop.gif)
+![Drag and Drop Final](/assets/images/interactjs-and-svelte/drag-and-drop.gif)
 
 Still interested? Checkout the sandbox or github repo :heartpulse:
 
