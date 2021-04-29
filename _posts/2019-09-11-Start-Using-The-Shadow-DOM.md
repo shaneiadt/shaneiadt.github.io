@@ -1,14 +1,17 @@
 ---
-title: Start Using The Shadow DOM
+title: "Start Using The Shadow DOM"
 date: 2019-09-11 09:22:27
-tags: ['HTML','DOM','Shadow DOM']
+tags:
+    - HTML
+    - DOM
+    - Shadow DOM
 ---
 
 **What the heck is this Shadow DOM** I've been hearing about?
 
 The **Shadow DOM** was created to **improve encapsulation** of components on the web. Previously & still to this day companies such as Facebook & Twitter expose their *like* & *follow* buttons through an `iframe` element.
 
-![](/images/start-using-the-shadow-dom/facebook-like.jpg)![](/images/start-using-the-shadow-dom/twitter-follow.jpg)
+![](/assets/images/start-using-the-shadow-dom/facebook-like.jpg)![](/assets/images/start-using-the-shadow-dom/twitter-follow.jpg)
 
 This ensures the styles of the button remain intact when used on other web pages. Yes the Shadow DOM is awesome for **scoping styles** to it's child elements :clap:
 
@@ -23,27 +26,27 @@ The good news is now we can create a similar encapsulated component without the 
 Let's start off with a simple HTML document.
 
 ```html
-<&#33;DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Simple DOM example<&#47;title>
-  <&#47;head>
+    <title>Simple DOM example</title>
+  </head>
   <body>
       <section>
-        <h1>What is the Shadow DOM?<&#47;h1>
-        <p>That's a pretty dang good question!<&#47;p>
+        <h1>What is the Shadow DOM?</h1>
+        <p>That's a pretty dang good question!</p>
         <div id="root">
-            <p>This is our fallback text<&#47;p>
-        <&#47;div>
-      <&#47;section>
-  <&#47;body>
-<&#47;html>
+            <p>This is our fallback text</p>
+        </div>
+      </section>
+  </body>
+</html>
 ```
 
 Now this will produce a DOM structure like so.
 
-![Example DOM Tree](/images/start-using-the-shadow-dom/example-dom-tree.jpg)
+![Example DOM Tree](/assets/images/start-using-the-shadow-dom/example-dom-tree.jpg)
 
 The Shadow DOM works by **allowing hidden DOM tree elements** to be **attached** to what is called the **shadow root**, which is just the root node / parent element pretty much.
 
@@ -57,7 +60,7 @@ The slider...
 
 Here's a screenshot of what it looks like from dev tools.
 
-![Input Range Slider](/images/start-using-the-shadow-dom/input-range-slider.jpg)
+![Input Range Slider](/assets/images/start-using-the-shadow-dom/input-range-slider.jpg)
 
 > Note: you must enable the "Show user agent shadow DOM" option within the dev tools settings to see this in your console.
 
@@ -76,7 +79,7 @@ The difference with mode `open` & `closed` is with it set to `open` you can acce
 
 Here's what the element looks like from the dev tools now.
 
-![Setting up the shadow host](/images/start-using-the-shadow-dom/shadow-host.jpg)
+![Setting up the shadow host](/assets/images/start-using-the-shadow-dom/shadow-host.jpg)
 
 ## Encapsulation FTW!
 
@@ -93,7 +96,7 @@ shadow.appendChild(paragraph)
 
 Which results in a little something like so...
 
-![Attaching a paragraph element into our Shadow DOM](/images/start-using-the-shadow-dom/attach-paragraph.jpg)
+![Attaching a paragraph element into our Shadow DOM](/assets/images/start-using-the-shadow-dom/attach-paragraph.jpg)
 
 ## Adding Some Style
 
@@ -112,29 +115,29 @@ styles.textContent = `
 shadow.appendChild(styles);
 ```
 
-![Adding some style](/images/start-using-the-shadow-dom/adding-some-style.jpg)
+![Adding some style](/assets/images/start-using-the-shadow-dom/adding-some-style.jpg)
 
 Pretty cool yeah I know! Our fall-back text is in place just encase the current browser doesn't support the Shadow DOM API.
 
 Here's the complete example we used in this article, why not test it out locally :thumbsup:
 
 ```html
-<&#33;DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>Simple DOM example<&#47;title>
-<&#47;head>
+    <title>Simple DOM example</title>
+</head>
 
 <body>
     <section>
-        <h1>What is the Shadow DOM?<&#47;h1>
-        <p>That's a pretty dang good question!<&#47;p>
+        <h1>What is the Shadow DOM?</h1>
+        <p>That's a pretty dang good question!</p>
         <div id="root">
-            <p>This is our fallback text<&#47;p>
-        <&#47;div>
-    <&#47;section>
+            <p>This is our fallback text</p>
+        </div>
+    </section>
     <script>
         const shadowHost = document.querySelector("#root");
         const shadow = shadowHost.attachShadow({
@@ -158,10 +161,10 @@ Here's the complete example we used in this article, why not test it out locally
             }
         `;
         shadow.appendChild(styles);
-    <&#47;script>
-<&#47;body>
+    </script>
+</body>
 
-<&#47;html>
+</html>
 ```
 
 ## Lessons Learned
