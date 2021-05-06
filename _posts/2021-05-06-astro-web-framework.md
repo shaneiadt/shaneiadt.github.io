@@ -10,7 +10,7 @@ tags:
 
 From some very smart people behind [Snowpack](https://www.snowpack.dev/) & [Skypack](https://www.skypack.dev/) comes a new web framework "**Astro**". It's still in beta at the moment but you can join their discord and sign-up for [early access](https://astro.build/).
 
-As it's still in closed beta all we have is this great [Speakeasy Js](https://speakeasyjs.com/) demo video: https://www.youtube.com/watch?v=mgkwZqVkrwo
+As it's still in closed beta all we have is this great [Speakeasy Js](https://speakeasyjs.com/) [demo video](https://www.youtube.com/watch?v=mgkwZqVkrwo).
 
 ## What's interesting about new thing?
 
