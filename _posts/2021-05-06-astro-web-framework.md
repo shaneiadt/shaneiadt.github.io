@@ -12,14 +12,14 @@ From some very smart people behind [Snowpack](https://www.snowpack.dev/) & [Skyp
 
 As it's still in closed beta all we have is this great [Speakeasy Js](https://speakeasyjs.com/) [demo video](https://www.youtube.com/watch?v=mgkwZqVkrwo).
 
-## What's interesting about new thing?
+## What's interesting about this new thing?
 
 It's upfront and honest there is no re-inventing of wheels more a borrowing old tech ideas sprinkled with some magic...because we all know magic is real & technology is pure magic :smile:
 
-Here's some cool aspects of Astro:
+Here's some cool aspects of **Astro**:
 
 - Bring Your Own Framework (BYOF) gives you the ability to combine components from different libraries together and even share state! Be it `.vue`, `.jsx` or `.svelte` you can use it all under one roof....let's not forget web components too.
-- SCSS out of the box, simply add a lang="scss" attribute to your style tag and a way you trot.
+- SCSS out of the box, simply add a `lang="scss"` attribute to your style tag and away you trot.
 - It provides a file based routing system.
 - No need for CSS modules as all styles will be scoped by default to the component they're defined in.
 - This is a big one....it ships with **NO JAVASCRIPT**! JS component bundles are added on an opt-in basis with some cool ways to lazy-load.
