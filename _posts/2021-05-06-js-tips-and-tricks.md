@@ -34,7 +34,7 @@ const { a: first, b: second } = fakeObject; // { first = "BOOM", second = "BANG"
 
 ## 3. Removing A Property
 
-Finally trick is how to remove a property while destructuring using the **rest** / **spread** operator.
+Another trick to remove a property while destructuring using the **rest** / **spread** operator.
 
 ```javascript
 const { a:_, ...theRest } = fakeObject; // theRest = { b = "BANG" }
@@ -54,7 +54,7 @@ let hey = 'go', ho = 'lets', lets = 'ho', go = 'hey';
 
 It sounds complicated but trust me it isn't...and is also quite useful.
 
-If the left-hand side of the assignment is null or undefined
+If the *left-hand side* of the assignment is **null** or **undefined** assign the variable to the *right-hand side* of the operation.
 
 ```javascript
 const myMovies = ['Scarface', 'Goodfellas', 'Al Capone'];
@@ -74,7 +74,7 @@ myMovies ??= ['Nothing!']; // ['Nothing!']
 
 ## 6. Removing Array Duplicates
 
-This one is great to have in your back pocket. The new Set object lets us store unique values and combined with the spread operator can drop all duplicates from a primitive array.
+This one is great to have in your back pocket. The new [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) object lets us store unique values and combined with the spread operator can drop all duplicates from a primitive/object reference array.
 
 ```javascript
 const array = ['a', 'a', 'b', 'b', 'c', 'c'];
