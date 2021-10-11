@@ -9,7 +9,7 @@ tags:
 
 Try out this super fast tool for testing out some cloud functions.
 
-https://tinyfunction.com/
+(TinyFunction)[https://tinyfunction.com/]
 
 No setup required, just write the function and hit the deploy button :thumbsup:
 
