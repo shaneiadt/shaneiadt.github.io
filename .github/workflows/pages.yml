@@ -15,35 +15,13 @@ concurrency:
   group: 'pages'
   cancel-in-progress: false
 
-jobs:
-  # display-variables:
-  #   name: ${{ vars.JOB_NAME }}
-  #   # You can use configuration variables with the `vars` context for dynamic jobs
-  #   # if: ${{ vars.USE_VARIABLES == 'true' }}
-  #   # runs-on: ${{ vars.RUNNER }}
-  #   # environment: ${{ vars.ENVIRONMENT_STAGE }}
-  #   steps:
-  #   - name: Use variables
-  #     run: |
-  #       echo "Giscus repo: $NEXT_PUBLIC_GISCUS_REPO"
-  #       echo "Giscus repo id: $NEXT_PUBLIC_GISCUS_REPOSITORY_ID"
-  #       echo "Giscus category: $NEXT_PUBLIC_GISCUS_CATEGORY"
-  #       echo "Giscus category id: $NEXT_PUBLIC_GISCUS_CATEGORY_ID"
-  #     env:
-  #       NEXT_PUBLIC_GISCUS_REPO: ${{ vars.NEXT_PUBLIC_GISCUS_REPO }}
-  #       NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ vars.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
-  #       NEXT_PUBLIC_GISCUS_CATEGORY: ${{ vars.NEXT_PUBLIC_GISCUS_CATEGORY }}
-  #       NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ vars.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
-  #       # REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
-  #       # ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
-  #       # OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
-        
-  #   # - name: ${{ vars.HELLO_WORLD_STEP }}
-  #   #   if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
-  #   #   uses: actions/hello-world-javascript-action@main
-  #   #   with:
-  #   #     who-to-greet: ${{ vars.GREET_NAME }}
+env:
+  NEXT_PUBLIC_GISCUS_REPO: ${{ vars.NEXT_PUBLIC_GISCUS_REPO }}
+  NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ vars.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
+  NEXT_PUBLIC_GISCUS_CATEGORY: ${{ vars.NEXT_PUBLIC_GISCUS_CATEGORY }}
+  NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ vars.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
 
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -53,11 +31,6 @@ jobs:
           echo "Giscus repo id: $NEXT_PUBLIC_GISCUS_REPOSITORY_ID"
           echo "Giscus category: $NEXT_PUBLIC_GISCUS_CATEGORY"
           echo "Giscus category id: $NEXT_PUBLIC_GISCUS_CATEGORY_ID"
-        env:
-          NEXT_PUBLIC_GISCUS_REPO: ${{ vars.NEXT_PUBLIC_GISCUS_REPO }}
-          NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ vars.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
-          NEXT_PUBLIC_GISCUS_CATEGORY: ${{ vars.NEXT_PUBLIC_GISCUS_CATEGORY }}
-          NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ vars.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
