@@ -9980,8 +9980,8 @@ __metadata:
   linkType: hard
 
 "protobufjs@npm:^7.2.3, protobufjs@npm:^7.2.4":
-  version: 7.2.6
-  resolution: "protobufjs@npm:7.2.6"
+  version: 7.5.5
+  resolution: "protobufjs@npm:7.5.5"
   dependencies:
     "@protobufjs/aspromise": ^1.1.2
     "@protobufjs/base64": ^1.1.2
@@ -9995,7 +9995,7 @@ __metadata:
     "@protobufjs/utf8": ^1.1.0
     "@types/node": ">=13.7.0"
     long: ^5.0.0
-  checksum: 3c62e48f7d50017ac3b0dcd2a58e617cf858f9fba56a488bd48b9aa3482893a75540052dbcb3c12dfbaab42b1d04964611175faf06bdadcd33a4ebac982a511e
+  checksum: e316eb0df33a64398ce32056de37435d8ea7ef3e06dff32cda2a7156431c029fe2c120e390b7ff066de7632e996d6d5d0540fb606fef223a8480dff25bee6123
   languageName: node
   linkType: hard
 
